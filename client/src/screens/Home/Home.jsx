@@ -5,6 +5,7 @@ import ArtistCard from "../../components/ArtistCard/ArtistCard";
 import Nightbanner from "../../components/Nightbanner/Nightbanner";
 import CollageHeart from "../../components/CollageHeart/CollageHeart";
 import Hero from "../../components/ScrollFancy/Hero"
+import CountDown from "../../components/CountDown/CountDown";
 
 const Home = () => {
     const artists = [
@@ -51,6 +52,7 @@ const Home = () => {
                     <div className="display-font">the countdown to our very own Pujo has already begun.</div>
                 </div>
             </section>
+            <CountDown />
             <section className="section-3">
                 <Heading
                     title={" The Stage Is Set!"}
