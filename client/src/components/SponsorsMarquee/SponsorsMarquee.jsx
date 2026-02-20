@@ -24,7 +24,7 @@ const SponsorsMarquee = ({ sponsorsList }) => {
           {sponsorsList.map((sponsor, index) => (
             <img 
               key={`set2-${index}`} 
-              src={`/assets/${sponsor.imgname}.webp`} /* Adjust this path based on how your JSON formats the image name */
+              src={`/assets/imgs/sponsorship/${sponsor.imgname}.webp`} /* Adjust this path based on how your JSON formats the image name */
               alt="Past Sponsor" 
               className="sponsor-logo" 
             />
