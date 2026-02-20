@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 import pastSponsorJsonData from "../../assets/data/pastSponsors.json";
 import sponsorJsonData from "../../assets/data/sponsors.json";
 import { Divider, Typography } from "@mui/material";
-
+import Headingv2 from "../../components/Headingv2/Headingv2";
+import SponsorCategory from "../../components/SponsorshipCategory/SponsorshipCategory";
+import WhySponsor from "../../components/WhySponsor/WhySponsor";
 const Heading1 = ({ title, subTitle, w }) => {
     return (
         <div
@@ -89,12 +91,12 @@ function Sponsorship() {
     return (
         <div className="sponsor-wrap">
             <div className="sponsor">
-                <Heading
-                    title={"Want to sponsor us?"}
-                    subTitle={
-                        "Prepare to be swept away as you put your best foot forward in this epic celebration of creativity and culture tha promises you laughter, joy and memories that will last you a lifetime and more. Keep your water bottles handy and get ready to feel the heat cuz the 84th edition of REBECA is back with a bang!"
-                    }
-                ></Heading>
+                <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+                    <Headingv2 title={"Want to Sponsor Us?"} />
+                    <p className="sub-title want-to-sponser-us">
+                        Prepare to be swept away as you put your best foot forward in this epic celebration of creativity and culture tha promises you laughter, joy and memories that will last you a lifetime and more. Keep your water bottles handy and get ready to feel the heat cuz the 84th edition of REBECA is back with a bang!
+                    </p>
+                </div>
                 <Link to={"#"}>
                     <Button
                         className="download_btn"
@@ -118,20 +120,18 @@ function Sponsorship() {
                         }
                         w={widthSize}
                     ></Heading1>
-                    <Heading1
-                        className={"heading_spon_second"}
-                        title={"What is Rebeca? "}
-                        subTitle={
-                            "REBECA, short for REunion and Bengal Engineering College Annuals, is the annual cultural fest of IIEST, Shibpur. From the classical Saptami night, to the BEings' night on Ashtami, from the soulful Kolkata symphonies on Navami, to the endless Bollywood magic on the Dashami night, our vibrant fest is nothing short of a second Durga Puja to us! Get ready as the 84th edition of REBECA is right around the corner. BEings, Pujo asche!"
-                        }
-                        w={"70%"}
-                    ></Heading1>
+                    <div className="what-is-rebeca-container">
+                        <div className="what-is-rebeca-heading">
+                            <Headingv2 title={"What is Rebeca?"} />
+                        </div>
+                        <div className="sub-title what-is-rebeca-text">
+                            REBECA, short for REunion and Bengal Engineering College Annuals, is the annual cultural fest of IIEST, Shibpur. From the classical Saptami night, to the BEings' night on Ashtami, from the soulful Kolkata symphonies on Navami, to the endless Bollywood magic on the Dashami night, our vibrant fest is nothing short of a second Durga Puja to us! Get ready as the 84th edition of REBECA is right around the corner. BEings, Pujo asche!
+                        </div>
+                    </div>
                 </section>
 
-                <section className="section-2">
-                    <div className="flow-chart">
-                        <img src={`/assets/imgs/sponsorship/${fileName}.webp`} alt="" />
-                    </div>
+                <section className="section-2" style={{ width: "100%", display: "flex", justifyContent: "center", padding: "2rem 0" }}>
+                    <WhySponsor />
                 </section>
                 {/* <section className="section-2">
 					<div className="cover-pic">
@@ -143,9 +143,11 @@ function Sponsorship() {
 				</section> */}
 
                 <section className="section-3">
-                    <Heading1 title={"Sponsor Categories"} w={"60%"}></Heading1>
+
+                    <Headingv2 title={"Sponsor Categories"} w={"60%"} >
+                    </Headingv2>
                     <div className="sponsor-categories">
-                        <img src={`/assets/imgs/sponsorship/${sponsorCategories}.webp`} alt="" />
+                        <SponsorCategory />
                     </div>
                 </section>
                 <div
@@ -188,7 +190,8 @@ function Sponsorship() {
                     </Typography>
                 </div>
 
-                <section className="section-4">
+
+                {/* <section className="section-4">
                     <div style={{ padding: "0 1rem" }}>
                         <Heading1 title={"Sponsors"}></Heading1>
                     </div>
@@ -202,11 +205,14 @@ function Sponsorship() {
                             </div>
                         </div>
                     ))}
-                </section>
+                </section> */}
 
                 <section className="section-4">
-                    <div style={{ padding: "0 1rem" }}>
+                    {/* <div style={{ padding: "0 1rem" }}>
                         <Heading1 title={"Past-sponsors"}></Heading1>
+                    </div> */}
+                    <div style={{ padding: "0 1rem", marginBottom: "3rem" }}>
+                        <Headingv2 title={"Past Sponsors"} />
                     </div>
                     <div className="center1">
                         <div className="cards">
