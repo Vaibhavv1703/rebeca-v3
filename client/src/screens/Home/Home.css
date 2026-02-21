@@ -76,7 +76,7 @@
   gap: 1rem;
   margin: 4rem 0;
   padding: 2.5rem;
-  min-height: 100vh;
+  min-height: 90vh;
   /* Ensure content stays visible and above the pseudo-element */
   z-index: 1; 
   overflow: hidden; /* Keeps the pseudo-element contained */
@@ -90,7 +90,7 @@
   height: 100%;
   
   /* 2. Move your background properties here */
-  background: url("/assets/imgs/artist-group-simple.webp") no-repeat center center/contain;
+  background: url("/assets/imgs/artist-group-simple.webp") no-repeat bottom center/contain;
   
   /* 3. Apply your filter here (e.g., 0.5 for 50% brightness) */
   filter: brightness(0.2); 
