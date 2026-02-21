@@ -118,10 +118,11 @@ export const AuthProvider = ({ children }) => {
                 setUserLoad(false);
             }
         };
-
-        initAuth();
-        console.log("What we set as user:")
-        console.log(user)
+        
+        // need to umcomment this for google login
+        // initAuth();
+        // console.log("What we set as user:")
+        // console.log(user)
     }, []);
 
     const handleLoginSuccess = async (response) => {
