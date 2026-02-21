@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Anton&family=Inter:wght@400;500;600&display=swap');
+
+.coming-soon-2k26-container {
+    min-height: 100vh;
+    background-color: #121212;
+    /* OLED Dark background */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.top-banner {
+    padding: 8rem 1rem 3rem 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.page-title {
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Anton', sans-serif;
+    line-height: 1;
+}
+
+
+
+.banner-title,
+.banner-subtitle {
+    font-family: 'Caveat', cursive;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+.banner-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.banner-subtitle {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: #a0a0a0;
+}
+
+.coming-soon-2k26-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+
+.coming-soon-2k26-countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.countdown-box {
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.countdown-box:hover {
+    transform: translateY(-4px);
+    border-color: #555555;
+}
+
+.countdown-value {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: #888888;
+    text-transform: uppercase;
+}
+
+.event-details {
+    text-align: center;
+    background: transparent;
+    padding: 2rem 3rem;
+    position: relative;
+}
+
+.event-date {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    letter-spacing: 0.02em;
+    margin: 0 0 1rem 0;
+    line-height: 1;
+    color: #f0f0f0;
+}
+
+.event-location {
+    font-family: 'Caveat', cursive;
+    color: #b0b0b0;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .coming-soon-2k26-countdown {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .event-details {
+        padding: 1.5rem 1rem;
+    }
+}
