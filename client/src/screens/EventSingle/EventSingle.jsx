@@ -161,9 +161,9 @@ const EventSingle = () => {
                     {oneEvent?.rounds?.map((round, i) => {
                         return (
                             <RoundCard
-                                name={round.roundname || `Round ${i + 1}`}
-                                start={extractFullDate(round.startTime)}
-                                end={extractFullDate(round.endTime)}
+                                name={round.roundname || round.name || `Round ${i + 1}`}
+                                start={extractFullDate(round.start || round.startTime || oneEvent.startTime)}
+                                end={extractFullDate(round.end || round.endTime || "")}
                                 venue={round.venue}
                                 key={i}
                                 i={i}
