@@ -121,6 +121,7 @@ const Team = () => {
                         endIcon={<East />}
                         onClick={() => window.open("https://forms.gle/qnceaoaaTiBTJ3627", "_blank")}
                         sx = {{mt: 2}}
+                        color="secondary"
                     >
                         Join as Volunteer
                     </Button>

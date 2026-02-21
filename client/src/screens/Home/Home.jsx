@@ -22,7 +22,6 @@ const Home = () => {
                     <div className="">the countdown to our very own Pujo has already begun!</div>
                 </div>
             </section>
-            <CountDown />
             <section className="section-3">
                 <h1 className="date">MARCH 20-23</h1>
                 <h4>Lords' Ground, IIEST Shibpur</h4>
@@ -38,6 +37,8 @@ const Home = () => {
             <section className="section-5">
                 <Heading title={"SCHEDULE"} />
             </section>
+            <CountDown />
+
         </div>
     );
 };
