@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Schedule.css';
-import Heading from '../../components/Heading/Heading'; 
+import Heading from '../../components/Headingv2/Headingv2'; 
 import Button from '../../components/Button/Button'; 
-import maskGroup from '../../assets/images/home/Mask_group.jpg';
+import maskGroup from '../../assets/images/home/Mask_group.webp';
 
 
 const Schedule = () => {
@@ -37,8 +37,6 @@ const Schedule = () => {
 
   return (
     <div className="schedule-container">
-      {/* Using Heading Component */}
-      <Heading title="SCHEDULE" needHatch={false} />
 
       {/* Tabs Layout */}
       <div className="tabs-container">
@@ -61,6 +59,7 @@ const Schedule = () => {
             src={scheduleData[activeTab].image} 
             alt={`Schedule Day ${scheduleData[activeTab].day}`} 
             className="background-mask-img" 
+            loading="lazy"
           />
           <div className="text-overlay">
             <p>{scheduleData[activeTab].desc}</p>

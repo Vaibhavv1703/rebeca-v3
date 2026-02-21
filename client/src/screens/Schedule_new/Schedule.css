@@ -104,18 +104,43 @@
   margin-top: 10px;
 }
 
-/* Mobile Responsiveness */
+/* Mobile: 2 tabs per row + full responsive scaling */
 @media (max-width: 768px) {
+  .tabs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Exactly 2 per row */
+    gap: 12px;
+    justify-content: center;
+    max-width: 340px;
+    margin: 30px auto 40px; /* Center it */
+  }
+  
   .tab-item {
-    min-width: 130px;
-    padding: 12px;
+    min-width: unset;
+    width: 100%;
+    padding: 14px 20px;
+    margin: 0; /* Reset any margins */
+  }
+  
+  .day-label {
+    font-size: 1.1rem;
+  }
+  
+  .event-label {
+    font-size: 0.6rem;
   }
   
   .vignette-wrapper {
-    height: 300px;
+    height: 45vh; /* Scales with viewport */
+    min-height: 280px;
   }
   
-  .tabs-container {
-    margin: 30px 0 40px 0;
+  .text-overlay {
+    width: 90%;
+    gap: 15px;
+  }
+  
+  .text-overlay p {
+    font-size: 1.1rem;
   }
 }
