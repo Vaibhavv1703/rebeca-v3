@@ -1,32 +1,104 @@
 {
     "saptami": {
-        "majorEvents": [0, 3, 6],
+        "majorEvents": [],
         "eventList": [
             {
                 "desc": "",
                 "rules": [],
                 "rulesLink": "",
                 "time": "",
-                "eventName": "Rangmanch",
-                "club": "Les Thespians",
+                "eventName": "Typist Tourney",
+                "fullName": "Typist Tourney",
+                "club": "CodeIIEST",
                 "venue": "",
                 "coordinators": [
                     {
-                        "name": "Aditya Dhanraj",
-                        "num": "9334754414"
+                        "name": "Yasharth Shukla",
+                        "num": "9161264689"
                     },
                     {
-                        "name": "Ayush Ranjan",
-                        "num": "8789916399"
+                        "name": "Vaibhav Singh",
+                        "num": "9458146567"
                     }
                 ],
                 "img": "",
-                "register": "No Registrations Required",
+                "register": "https://forms.gle/yR4WJkMXYfXgMerZ9",
                 "registrationDetails": [],
                 "rounds": [],
                 "teamSize": "",
                 "qrCode": "",
-                "url": ""
+                "day": "saptami"
+            },
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Film Fiesta",
+                "fullName": "Film Fiesta",
+                "club": "Camerabuff",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Mittapally Sairaj",
+                        "num": "9949722522"
+                    },
+                    {
+                        "name": "Swachchhotoya Aich",
+                        "num": "8420663581"
+                    }
+                ],
+                "img": "",
+                "register": "",
+                "registrationDetails": [
+                    {
+                        "type": "note",
+                        "text": "NA (however, we will need a projector to do movie screening)",
+                        "value": ""
+                    }
+                ],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "saptami"
+            }
+        ]
+    },
+    "ashtami": {
+        "majorEvents": [],
+        "eventList": [
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Flying Solo",
+                "fullName": "FLYING SOLO (MUSICAL SOLO COMPETITION)",
+                "club": "EUPHONY",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Shivam Yadav",
+                        "num": "+91 6306768029"
+                    },
+                    {
+                        "name": "Anurag Panja",
+                        "num": "+91 62960 29979"
+                    }
+                ],
+                "img": "",
+                "register": "https://docs.google.com/forms/d/e/1FAIpQLSfcnhJusqEnRjTOxrSVZceZ7a7_eYQxw8oTWMnVNOpQPsKgCQ/viewform?usp=sharing&ouid=114797612459313656727",
+                "registrationDetails": [
+                    {
+                        "type": "note",
+                        "text": "Drive link to take videos of round 1.",
+                        "value": ""
+                    }
+                ],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "ashtami"
             },
             {
                 "desc": "",
@@ -34,6 +106,7 @@
                 "rulesLink": "",
                 "time": "",
                 "eventName": "Dumb Charades League",
+                "fullName": "Dumb Charades League",
                 "club": "LitSoc- The Literary Society of IIEST Shibpur",
                 "venue": "",
                 "coordinators": [
@@ -52,14 +125,15 @@
                 "rounds": [],
                 "teamSize": "",
                 "qrCode": "",
-                "url": ""
+                "day": "ashtami"
             },
             {
                 "desc": "",
                 "rules": [],
                 "rulesLink": "",
                 "time": "",
-                "eventName": "MonoAct",
+                "eventName": "Monoact",
+                "fullName": "MonoAct",
                 "club": "Les Thespians",
                 "venue": "",
                 "coordinators": [
@@ -78,14 +152,199 @@
                 "rounds": [],
                 "teamSize": "",
                 "qrCode": "",
-                "url": ""
+                "day": "ashtami"
+            }
+        ]
+    },
+    "navmi": {
+        "majorEvents": [],
+        "eventList": [
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "RockBuzz",
+                "fullName": "ROCKBUZZ(BATTLE OF BANDS)",
+                "club": "EUPHONY",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Aditi Mondal",
+                        "num": "8910207436"
+                    },
+                    {
+                        "name": "Farhan Talukdar",
+                        "num": "7384928393"
+                    }
+                ],
+                "img": "",
+                "register": "https://docs.google.com/forms/d/e/1FAIpQLSf_J5Yay2SOIvdHj2xMNz-LTAfSKEHeDCiV9o89TzrnUq5_XA/viewform?usp=header\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
+                "registrationDetails": [
+                    {
+                        "type": "note",
+                        "text": "Drive link to take videos of round 1.",
+                        "value": ""
+                    }
+                ],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "navmi"
             },
             {
                 "desc": "",
                 "rules": [],
                 "rulesLink": "",
                 "time": "",
-                "eventName": "RebeQuiz",
+                "eventName": "Footloose",
+                "fullName": "FOOTLOOSE(STREET DANCE BATTLE)",
+                "club": "Reflexobeta",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Gyanshi",
+                        "num": "76786 24280"
+                    },
+                    {
+                        "name": "Ankala Lakshmi Prabhashini",
+                        "num": "7396 658 079"
+                    }
+                ],
+                "img": "",
+                "register": "https://docs.google.com/forms/d/1l53k-npPMa8TK_xlOI7vVm7Sld8A8AhhcmHH0jJA7s4/edit",
+                "registrationDetails": [],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "navmi"
+            },
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Rangmanch",
+                "fullName": "Rangmanch",
+                "club": "Les Thespians",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Aditya Dhanraj",
+                        "num": "9334754414"
+                    },
+                    {
+                        "name": "Ayush Ranjan",
+                        "num": "8789916399"
+                    }
+                ],
+                "img": "",
+                "register": "No Registrations Required",
+                "registrationDetails": [],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "navmi"
+            }
+        ]
+    },
+    "dashmi": {
+        "majorEvents": [],
+        "eventList": [
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Solo Synergy",
+                "fullName": "SOLO SYNERGY(SOLO DANCE COMPETITION)",
+                "club": "Reflexobeta",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Manisha Singh",
+                        "num": "95089 01220"
+                    },
+                    {
+                        "name": "Anusha Gupta",
+                        "num": "734 888 9994"
+                    }
+                ],
+                "img": "",
+                "register": "https://docs.google.com/forms/d/1yNNxpCM6AQ5ktWOmo9tUvDu39xpDF8P6WQ2Ri5DNrog/edit",
+                "registrationDetails": [],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "dashmi"
+            },
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Sync Showcase",
+                "fullName": "SYNC SHOWCASE (GROUP DANCE COMPETITION)",
+                "club": "Reflexobeta",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Viren Raj",
+                        "num": "77830 31005"
+                    },
+                    {
+                        "name": "Sudiksha Dutta",
+                        "num": "90600 36249"
+                    }
+                ],
+                "img": "",
+                "register": "https://docs.google.com/forms/d/1HdX9ZGCge0jOI_h-K2A5rS1N8TEM63m6MEYiELbJ6mw/edit",
+                "registrationDetails": [],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "dashmi"
+            },
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Verse Wars",
+                "fullName": "Verse Wars",
+                "club": "LitSoc- The Literary Society of IIEST Shibpur",
+                "venue": "",
+                "coordinators": [
+                    {
+                        "name": "Sayan Dutta",
+                        "num": "+91 81005 72965"
+                    },
+                    {
+                        "name": "Abdullah Ali",
+                        "num": "+91 87773 28225"
+                    }
+                ],
+                "img": "",
+                "register": "https://forms.gle/EMPcwhGuJ6ReVLtZ8",
+                "registrationDetails": [
+                    {
+                        "type": "note",
+                        "text": "Audio file",
+                        "value": ""
+                    }
+                ],
+                "rounds": [],
+                "teamSize": "",
+                "qrCode": "",
+                "day": "dashmi"
+            },
+            {
+                "desc": "",
+                "rules": [],
+                "rulesLink": "",
+                "time": "",
+                "eventName": "Rebequiz",
+                "fullName": "RebeQuiz",
                 "club": "QUIZMANIAC BEINGS",
                 "venue": "",
                 "coordinators": [
@@ -104,137 +363,7 @@
                 "rounds": [],
                 "teamSize": "",
                 "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Pixel Poetry",
-                "club": "Catharsis - The Photography Society of IIEST, Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Anshika Gupta",
-                        "num": "+91 63884 51765"
-                    },
-                    {
-                        "name": "Aman Wankhede",
-                        "num": "+91 74481 71318"
-                    }
-                ],
-                "img": "",
-                "register": "Ok",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Photowalk",
-                "club": "Catharsis - The Photography Society of IIEST, Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Sandip Kumar Das",
-                        "num": "7063898592"
-                    },
-                    {
-                        "name": "Soumyaditya Mondal",
-                        "num": "7797754924"
-                    }
-                ],
-                "img": "",
-                "register": "Ok",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Photography Workshop",
-                "club": "Catharsis - The photography Society Of IIEST, Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Harsh Gautam",
-                        "num": "9761312100"
-                    },
-                    {
-                        "name": "Arka Mondal",
-                        "num": "9474762287"
-                    }
-                ],
-                "img": "",
-                "register": "I will provide later.",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Saturnalia",
-                "club": "Catharsis - The photography Society of IIEST, Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Anamika Singh",
-                        "num": "7001271691"
-                    },
-                    {
-                        "name": "Sandip Kumar Das",
-                        "num": "7063898592"
-                    }
-                ],
-                "img": "",
-                "register": "I will provide later.",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Shutter Sprint",
-                "club": "Catharsis - The Photography Society of IIEST, Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Nikhil Kumar",
-                        "num": "7858010472"
-                    },
-                    {
-                        "name": "Harsh Kamal",
-                        "num": "9875648449"
-                    }
-                ],
-                "img": "",
-                "register": "I will provide Later.",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
+                "day": "dashmi"
             },
             {
                 "desc": "",
@@ -242,6 +371,7 @@
                 "rulesLink": "",
                 "time": "",
                 "eventName": "Nukkad Natak",
+                "fullName": "Nukkad Natak",
                 "club": "Les Thespians",
                 "venue": "",
                 "coordinators": [
@@ -260,632 +390,8 @@
                 "rounds": [],
                 "teamSize": "",
                 "qrCode": "",
-                "url": ""
+                "day": "dashmi"
             }
         ]
-    },
-    "ashtami": {
-        "majorEvents": [0, 3, 6],
-        "eventList": [            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Flying Solo",
-                "fullName": "Flying Solo (Musical Solo Competition)",
-                "club": "EUPHONY",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Shivam Yadav",
-                        "num": "+91 6306768029"
-                    },
-                    {
-                        "name": "Anurag Panja",
-                        "num": "+91 62960 29979"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/e/1FAIpQLSfcnhJusqEnRjTOxrSVZceZ7a7_eYQxw8oTWMnVNOpQPsKgCQ/viewform?usp=sharing&ouid=114797612459313656727\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Drive link to take videos of round 1.",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Rockbuzz",
-                "fullName": "Rockbuzz (Battle of Bands)",
-                "club": "EUPHONY",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Aditi Mondal",
-                        "num": "8910207436"
-                    },
-                    {
-                        "name": "Farhan Talukdar",
-                        "num": "7384928393"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/e/1FAIpQLSf_J5Yay2SOIvdHj2xMNz-LTAfSKEHeDCiV9o89TzrnUq5_XA/viewform?usp=header\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Drive link to take videos of round 1.",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Solo Synergy",
-                "fullName": "Solo Synergy (Solo Dance Competition)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Manisha Singh",
-                        "num": "95089 01220"
-                    },
-                    {
-                        "name": "Anusha Gupta",
-                        "num": "734 888 9994"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1yNNxpCM6AQ5ktWOmo9tUvDu39xpDF8P6WQ2Ri5DNrog/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Sync Showcase",
-                "fullName": "Sync Showcase (Group Dance Competition)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Viren Raj",
-                        "num": "77830 31005"
-                    },
-                    {
-                        "name": "Sudiksha Dutta",
-                        "num": "90600 36249"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1HdX9ZGCge0jOI_h-K2A5rS1N8TEM63m6MEYiELbJ6mw/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Footloose",
-                "fullName": "Footloose (Street Dance Battle)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Gyanshi",
-                        "num": "76786 24280"
-                    },
-                    {
-                        "name": "Ankala Lakshmi Prabhashini",
-                        "num": "7396 658 079"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1l53k-npPMa8TK_xlOI7vVm7Sld8A8AhhcmHH0jJA7s4/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Typist Tourney",
-                "club": "CodeIIEST",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Yasharth Shukla",
-                        "num": "9161264689"
-                    },
-                    {
-                        "name": "Vaibhav Singh",
-                        "num": "9458146567"
-                    }
-                ],
-                "img": "",
-                "register": "https://forms.gle/yR4WJkMXYfXgMerZ9",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Verse Wars",
-                "club": "LitSoc- The Literary Society of IIEST Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Sayan Dutta",
-                        "num": "+91 81005 72965"
-                    },
-                    {
-                        "name": "Abdullah Ali",
-                        "num": "+91 87773 28225"
-                    }
-                ],
-                "img": "",
-                "register": "https://forms.gle/EMPcwhGuJ6ReVLtZ8",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Audio file",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            }]
-    },
-    "navami": {
-        "majorEvents": [0, 3, 6],
-        "eventList": [            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Flying Solo",
-                "fullName": "Flying Solo (Musical Solo Competition)",
-                "club": "EUPHONY",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Shivam Yadav",
-                        "num": "+91 6306768029"
-                    },
-                    {
-                        "name": "Anurag Panja",
-                        "num": "+91 62960 29979"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/e/1FAIpQLSfcnhJusqEnRjTOxrSVZceZ7a7_eYQxw8oTWMnVNOpQPsKgCQ/viewform?usp=sharing&ouid=114797612459313656727\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Drive link to take videos of round 1.",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Rockbuzz",
-                "fullName": "Rockbuzz (Battle of Bands)",
-                "club": "EUPHONY",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Aditi Mondal",
-                        "num": "8910207436"
-                    },
-                    {
-                        "name": "Farhan Talukdar",
-                        "num": "7384928393"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/e/1FAIpQLSf_J5Yay2SOIvdHj2xMNz-LTAfSKEHeDCiV9o89TzrnUq5_XA/viewform?usp=header\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Drive link to take videos of round 1.",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Solo Synergy",
-                "fullName": "Solo Synergy (Solo Dance Competition)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Manisha Singh",
-                        "num": "95089 01220"
-                    },
-                    {
-                        "name": "Anusha Gupta",
-                        "num": "734 888 9994"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1yNNxpCM6AQ5ktWOmo9tUvDu39xpDF8P6WQ2Ri5DNrog/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Sync Showcase",
-                "fullName": "Sync Showcase (Group Dance Competition)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Viren Raj",
-                        "num": "77830 31005"
-                    },
-                    {
-                        "name": "Sudiksha Dutta",
-                        "num": "90600 36249"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1HdX9ZGCge0jOI_h-K2A5rS1N8TEM63m6MEYiELbJ6mw/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Footloose",
-                "fullName": "Footloose (Street Dance Battle)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Gyanshi",
-                        "num": "76786 24280"
-                    },
-                    {
-                        "name": "Ankala Lakshmi Prabhashini",
-                        "num": "7396 658 079"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1l53k-npPMa8TK_xlOI7vVm7Sld8A8AhhcmHH0jJA7s4/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Typist Tourney",
-                "club": "CodeIIEST",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Yasharth Shukla",
-                        "num": "9161264689"
-                    },
-                    {
-                        "name": "Vaibhav Singh",
-                        "num": "9458146567"
-                    }
-                ],
-                "img": "",
-                "register": "https://forms.gle/yR4WJkMXYfXgMerZ9",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Verse Wars",
-                "club": "LitSoc- The Literary Society of IIEST Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Sayan Dutta",
-                        "num": "+91 81005 72965"
-                    },
-                    {
-                        "name": "Abdullah Ali",
-                        "num": "+91 87773 28225"
-                    }
-                ],
-                "img": "",
-                "register": "https://forms.gle/EMPcwhGuJ6ReVLtZ8",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Audio file",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            }]
-    },
-    "dashami": {
-        "majorEvents": [0, 3, 6],
-        "eventList": [            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Flying Solo",
-                "fullName": "Flying Solo (Musical Solo Competition)",
-                "club": "EUPHONY",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Shivam Yadav",
-                        "num": "+91 6306768029"
-                    },
-                    {
-                        "name": "Anurag Panja",
-                        "num": "+91 62960 29979"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/e/1FAIpQLSfcnhJusqEnRjTOxrSVZceZ7a7_eYQxw8oTWMnVNOpQPsKgCQ/viewform?usp=sharing&ouid=114797612459313656727\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Drive link to take videos of round 1.",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Rockbuzz",
-                "fullName": "Rockbuzz (Battle of Bands)",
-                "club": "EUPHONY",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Aditi Mondal",
-                        "num": "8910207436"
-                    },
-                    {
-                        "name": "Farhan Talukdar",
-                        "num": "7384928393"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/e/1FAIpQLSf_J5Yay2SOIvdHj2xMNz-LTAfSKEHeDCiV9o89TzrnUq5_XA/viewform?usp=header\n\nThis is Last years google form that we used. this year it will more or less be the same except for some details like coordinators etc and changes in rulebook",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Drive link to take videos of round 1.",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Solo Synergy",
-                "fullName": "Solo Synergy (Solo Dance Competition)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Manisha Singh",
-                        "num": "95089 01220"
-                    },
-                    {
-                        "name": "Anusha Gupta",
-                        "num": "734 888 9994"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1yNNxpCM6AQ5ktWOmo9tUvDu39xpDF8P6WQ2Ri5DNrog/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Sync Showcase",
-                "fullName": "Sync Showcase (Group Dance Competition)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Viren Raj",
-                        "num": "77830 31005"
-                    },
-                    {
-                        "name": "Sudiksha Dutta",
-                        "num": "90600 36249"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1HdX9ZGCge0jOI_h-K2A5rS1N8TEM63m6MEYiELbJ6mw/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Footloose",
-                "fullName": "Footloose (Street Dance Battle)",
-                "club": "Reflexobeta",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Gyanshi",
-                        "num": "76786 24280"
-                    },
-                    {
-                        "name": "Ankala Lakshmi Prabhashini",
-                        "num": "7396 658 079"
-                    }
-                ],
-                "img": "",
-                "register": "https://docs.google.com/forms/d/1l53k-npPMa8TK_xlOI7vVm7Sld8A8AhhcmHH0jJA7s4/edit",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Typist Tourney",
-                "club": "CodeIIEST",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Yasharth Shukla",
-                        "num": "9161264689"
-                    },
-                    {
-                        "name": "Vaibhav Singh",
-                        "num": "9458146567"
-                    }
-                ],
-                "img": "",
-                "register": "https://forms.gle/yR4WJkMXYfXgMerZ9",
-                "registrationDetails": [],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            },
-            {
-                "desc": "",
-                "rules": [],
-                "rulesLink": "",
-                "time": "",
-                "eventName": "Verse Wars",
-                "club": "LitSoc- The Literary Society of IIEST Shibpur",
-                "venue": "",
-                "coordinators": [
-                    {
-                        "name": "Sayan Dutta",
-                        "num": "+91 81005 72965"
-                    },
-                    {
-                        "name": "Abdullah Ali",
-                        "num": "+91 87773 28225"
-                    }
-                ],
-                "img": "",
-                "register": "https://forms.gle/EMPcwhGuJ6ReVLtZ8",
-                "registrationDetails": [
-                    {
-                        "type": "note",
-                        "text": "Audio file",
-                        "value": ""
-                    }
-                ],
-                "rounds": [],
-                "teamSize": "",
-                "qrCode": "",
-                "url": ""
-            }]
     }
 }

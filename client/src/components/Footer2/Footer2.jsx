@@ -25,16 +25,16 @@ const Footer2 = () => {
                             Bengal
                         </a>
                     </div>
-                    <div className="address">© rebeca.in 2025. All right reserved</div>
+                    <div className="address">© rebeca.in 2026. All right reserved</div>
                 </div>
                 <div className="right-col">
                     <div className="title">Contacts</div>
                     <div className="contacts">
                         <div className="contact">
-                            <div className="name">Dr. Debdulal Das
+                            <div className="name">Dr. Sekhar Mandal
                             </div>
 
-                            <div className="ph-num">Chairperson</div>
+                            <div className="ph-num">Chairman</div>
                         </div>
                         <div className="contact">
                             <div className="name">Dr. Rajib Chakraborty</div>
@@ -42,27 +42,34 @@ const Footer2 = () => {
                             <div className="ph-num">Joint Convenor</div>
                         </div>
                         <div className="contact">
-                            <div className="name">Dr. Gautam Anand</div>
+                            <div className="name">Dr. Dipankana Bhattacherjee</div>
 
                             <div className="ph-num">Joint Convenor</div>
                         </div>
                         <div className="contact">
-                            <div className="name">Dr. Santanu Maity</div>
+                            <div className="name">Dr. Ujjal Bhattacherjee</div>
 
                             <div className="ph-num">Treasurer</div>
                         </div>
                         <div className="contact">
-                            <div className="name">Sudhanshu Mishra</div>
+                            <div className="name">Niloy Mondal</div>
 
                             <div className="ph-num" style={{whiteSpace: "nowrap"}}>
-                                <span className="material-icons">phone</span>+91-95993-68639
+                                <span className="material-icons">phone</span>+91-70475-71174
                             </div>
                         </div>
                         <div className="contact">
-                            <div className="name">Ivan jacob Thomas</div>
+                            <div className="name">Dipu Shaw</div>
 
                             <div className="ph-num" style={{whiteSpace: "nowrap"}}>
-                                <span className="material-icons">phone</span>+91-74638-84470
+                                <span className="material-icons">phone</span>+91-76992-59827
+                            </div>
+                        </div>
+                        <div className="contact">
+                            <div className="name">Aniket Chandramohan Nimje</div>
+
+                            <div className="ph-num" style={{whiteSpace: "nowrap"}}>
+                                <span className="material-icons">phone</span>+91-86687-98948
                             </div>
                         </div>
                     </div>
@@ -70,7 +77,7 @@ const Footer2 = () => {
                 <div className="social">
                     <div className="social-h">Visit us Virtually</div>
                     <div className="social-icons">
-                        <a href="mailto: 83rebeca2k24@gmail.com">
+                        <a href="mailto: rebeca@iiests.ac.in">
                             <IconButton sx={{bgcolor: 'var(--accent2)', '&:hover':{
                                 bgcolor: 'rgb(93, 93, 93)'
                             }}} size="medium">
