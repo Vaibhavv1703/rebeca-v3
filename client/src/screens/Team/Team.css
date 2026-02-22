@@ -9,8 +9,8 @@
 }
 
 .team h1 {
-    font-family: "Sedgwick Ave Display";
     margin-bottom: 1rem;
+    /* font-family: var(--heading-font); */
 }
 
 .teamspage-loading {

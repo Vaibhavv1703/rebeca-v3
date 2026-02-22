@@ -42,6 +42,7 @@ const Heading1 = ({ title, subTitle, w }) => {
                     style={{
                         width: "100%",
                         textAlign: "left",
+                        color: "#ffffff8b",
                     }}
                 >
                     {subTitle}
@@ -79,10 +80,10 @@ function Sponsorship() {
     }, []);
 
     const onButtonClick = () => {
-        const pdfUrl = "/assets/rebeca84brochure.pdf";
+        const pdfUrl = "/assets/rebeca-sponsorship-brochure.pdf";
         const link = document.createElement("a");
         link.href = pdfUrl;
-        link.download = "Rebeca84Brochure.pdf"; // specify the filename
+        link.download = "rebeca-sponsorship-brochure.pdf"; // specify the filename
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -92,9 +93,12 @@ function Sponsorship() {
         <div className="sponsor-wrap">
             <div className="sponsor">
                 <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
-                    <Headingv2 title={"Want to Sponsor Us?"} />
+                <h1 style={{fontFamily: 'var(--heading-font)', width: '100%', textAlign: 'center'}}>Want to sponsor us ?</h1>
                     <p className="sub-title want-to-sponser-us">
-                        Prepare to be swept away as you put your best foot forward in this epic celebration of creativity and culture tha promises you laughter, joy and memories that will last you a lifetime and more. Keep your water bottles handy and get ready to feel the heat cuz the 84th edition of REBECA is back with a bang!
+                        Prepare to be swept away as you put your best foot forward in this epic celebration of
+                        creativity and culture tha promises you laughter, joy and memories that will last you a lifetime
+                        and more. Keep your water bottles handy and get ready to feel the heat cuz the 84th edition of
+                        REBECA is back with a bang!
                     </p>
                 </div>
                 <Link to={"#"}>
@@ -122,22 +126,25 @@ function Sponsorship() {
                     ></Heading1>
                     <div className="what-is-rebeca-container">
                         <div className="what-is-rebeca-heading">
-                            <Headingv2 title={"What is Rebeca?"} />
+                            <h1 style={{fontFamily: 'var(--heading-font)', width: '100%', textAlign: 'left'}}>What is Rebeca</h1>
                         </div>
                         <div className="sub-title what-is-rebeca-text">
-                            REBECA, short for REunion and Bengal Engineering College Annuals, is the annual cultural fest of IIEST, Shibpur. From the classical Saptami night, to the BEings' night on Ashtami, from the soulful Kolkata symphonies on Navami, to the endless Bollywood magic on the Dashami night, our vibrant fest is nothing short of a second Durga Puja to us! Get ready as the 84th edition of REBECA is right around the corner. BEings, Pujo asche!
+                            REBECA, short for REunion and Bengal Engineering College Annuals, is the annual cultural
+                            fest of IIEST, Shibpur. From the classical Saptami night, to the BEings' night on Ashtami,
+                            from the soulful Kolkata symphonies on Navami, to the endless Bollywood magic on the Dashami
+                            night, our vibrant fest is nothing short of a second Durga Puja to us! Get ready as the 84th
+                            edition of REBECA is right around the corner. BEings, Pujo asche!
                         </div>
                     </div>
                 </section>
 
                 <section className="section-2">
                     <div style={{ padding: "2rem" }}>
-                        <div style={{ paddingLeft: "3rem" }}>
-                            <Headingv2 title={"Why Sponsor Rebeca?"}></Headingv2>
+                        <div>
+                            <h1 style={{fontFamily: 'var(--heading-font)', width: '100%', textAlign: 'left'}}>Why Sponsor Rebeca</h1>
                         </div>
                         <WhySponsorBento />
                     </div>
-
                 </section>
                 {/* <section className="section-2">
                     <div className="cover-pic">
@@ -149,7 +156,7 @@ function Sponsorship() {
                 </section> */}
 
                 <section className="section-3">
-                    <Headingv2 title={"Sponsor Categories"} w={"100%"}></Headingv2>
+                    <h1 style={{fontFamily: 'var(--heading-font)', width: '100%', textAlign: 'left'}}>Sponsor Categories</h1>
                     <SponsorSkillTree />
                 </section>
                 <div
@@ -164,7 +171,7 @@ function Sponsorship() {
                         alignItems: "center",
                         margin: "6rem 0",
                         width: "100vw",
-                        height: "100vh"
+                        height: "100vh",
                     }}
                 >
                     <Typography
@@ -172,9 +179,9 @@ function Sponsorship() {
                             fontFamily: "Sedgwick Ave Display",
                             padding: "2rem",
                             paddingBottom: "5rem",
-                            fontSize: "2.2rem",
+                            fontSize: "3rem",
                             opacity: "0.5",
-                            textAlign: "center"
+                            textAlign: "center",
                         }}
                     >
                         The oldest cultural fest of India
@@ -186,12 +193,15 @@ function Sponsorship() {
                             textAlign: "center",
                             paddingTop: "5rem",
                             opacity: "0.8",
+                            fontFamily: "var(--body-font)",
+                            fontSize: "1.3rem",
                         }}
                     >
-                        Born in 1960, Rebeca is more than a cultural fest—it's a tradition etched in time. With every beat, spotlight, and standing ovation, it celebrates a history that no other college fest can claim.
+                        Born in 1960, Rebeca is more than a cultural fest—it's a tradition etched in time. With every
+                        beat, spotlight, and standing ovation, it celebrates a history that no other college fest can
+                        claim.
                     </Typography>
                 </div>
-
 
                 {/* <section className="section-4">
                     <div style={{ padding: "0 1rem" }}>
@@ -219,7 +229,6 @@ function Sponsorship() {
                     </div>
 
                     <SponsorsMarquee sponsorsList={pastSponsorJsonData} />
-
                 </section>
             </div>
         </div>
