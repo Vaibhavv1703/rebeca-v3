@@ -3,7 +3,13 @@ import "./EventList.css";
 import { Link } from "react-router-dom";
 
 export const extractTime = (isoString) => {
+    if (!isoString) return "";
+    // If it's already a human-readable time like "Day 1 17:00", return as-is
+    if (typeof isoString === "string" && /Day\s*\d+/i.test(isoString)) return isoString;
+
     const date = new Date(isoString);
+    if (isNaN(date.getTime())) return isoString || "";
+
     const startTime = date.toLocaleTimeString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
@@ -13,22 +19,25 @@ export const extractTime = (isoString) => {
     return startTime;
 };
 
-export const extractFullDate = (isoString, removeYear=false) => {
+export const extractFullDate = (isoString, removeYear = false) => {
+    if (!isoString) return "";
+
+    // If input already looks like a human-friendly schedule string, return it.
+    if (typeof isoString === "string" && /Day\s*\d+/i.test(isoString)) return isoString;
+
     const date = new Date(isoString);
-    
-    // Format date
+    if (isNaN(date.getTime())) return isoString || "";
+
     const day = date.getDate();
-    const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(date);
+    const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
     const year = date.getFullYear();
-    
-    // Format time
+
     const startTime = date.toLocaleTimeString("en-US", {
         hour: "2-digit",
         minute: "2-digit",
         hour12: true,
     });
 
-    // Determine ordinal suffix for day (e.g., 12th, 21st, etc.)
     let ordinalSuffix = "th";
     if (day % 10 === 1 && day !== 11) {
         ordinalSuffix = "st";
@@ -38,8 +47,7 @@ export const extractFullDate = (isoString, removeYear=false) => {
         ordinalSuffix = "rd";
     }
 
-    // Construct formatted string
-    const formattedTime = `${day}${ordinalSuffix} ${month}${removeYear?"":" "+year}, ${startTime}`;
+    const formattedTime = `${day}${ordinalSuffix} ${month}${removeYear ? "" : " " + year}, ${startTime}`;
 
     return formattedTime;
 };
@@ -52,7 +60,7 @@ const EventList = ({ eventlist }) => {
                 {eventlist.map((a, i) => {
                     return (
                         <div className="row" key={i}>
-                            <div className="time">{a && a.rounds && extractTime(a.rounds[0]?.startTime)}</div>
+                            <div className="time">{a && a.rounds && extractTime(a.rounds?.[0]?.start || a.rounds?.[0]?.startTime || a.startTime)}</div>
                             <div className="linespace"></div>
                             <Link
                                 to={`/events/${a.slug}`}
