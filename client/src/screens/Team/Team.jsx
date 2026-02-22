@@ -18,6 +18,7 @@ import CustomAvatar from "../../components/CustomAvatar/CustomAvatar";
 import { useAuth } from "../../AuthContext";
 import { teamIcons } from "../../AuthContext";
 import { East, Favorite } from "@mui/icons-material";
+import Heading from "../../components/Headingv2/Headingv2"
 
 const profs = [
     { name: "Dr. Debdulal Das", position: "Chairperson", img: "./assets/imgs/Faculty/debdulaldas.webp" },
@@ -101,7 +102,7 @@ const Team = () => {
     return (
         allTeams && (
             <div className="team">
-                <h1>Meet Our Team</h1>
+                <Heading title={"MEET OUR TEAM"}/>
                 <ProfessorsList />
                 <Box sx={{
                     display: "flex",
