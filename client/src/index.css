@@ -9,7 +9,7 @@
 	color-scheme: light dark;
 
 	--accent1: #ff3593;
-	--accent2: #7e34ff;
+	--accent2: rgb(126, 52, 255);
 
 	--primary: var(--accent1);
 	--app-background: #000;

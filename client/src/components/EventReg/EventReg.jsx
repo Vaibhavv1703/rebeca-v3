@@ -1,37 +1,29 @@
 import React, { useState, useEffect } from "react";
 import {
-    Container,
-    CardContent,
-    Card,
-    Typography,
-    StepLabel,
-    Step,
-    Button,
     Stepper,
+    Step,
+    StepLabel,
+    Typography,
+    TextField,
+    Box,
+    Paper,
+    IconButton,
+    Divider,
+    Stack,
+    Card,
+    CardContent,
+    CircularProgress,
+    Button,
     Alert,
     AlertTitle,
-    CircularProgress,
 } from "@mui/material";
-import Payment from "./Payment";
-import { useParams, useNavigate } from "react-router-dom";
-import GetData from "./GetData";
-import { ArrowForward, CheckCircle, DeviceUnknown, Edit, HelpCenterRounded, NoteAlt } from "@mui/icons-material";
+import { AddCircleOutline, DeleteOutline, CheckCircle, NoteAlt, HelpCenterRounded } from "@mui/icons-material";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
-import { postImage } from "../../services/imgApi";
-import { enrollUser, isUserRegistered } from "../../services/eventApi";
+import "./EventReg.css";
+import { createReg } from "../../services/api";
 
-const allAreIIESTians = (team) => {
-    console.log("THIS IS CHECKING FOR IIESTians:");
-    console.log(team);
-
-    for (let member of team) {
-        if (member?.email?.endsWith("iiests.ac.in")) continue;
-        else return false;
-    }
-    return true;
-};
-
-const steps = ["Getting data", "Payment", "Completed"];
+const steps = ["Verify Details", "Team & Assets", "Payment", "Success"];
 
 const FinishMessage = () => {
     return (
@@ -50,14 +42,14 @@ const FinishMessage = () => {
 const CompletedContent = () => {
     const navigate = useNavigate();
     return (
-        <Card>
+        <Card sx={{ width: "min(100%, 400px)" }}>
             <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <CheckCircle color="success" sx={{ width: "6rem", height: "6rem" }} />
                 <Typography variant="h5">Congratulations!</Typography>
                 <Typography variant="body1" color="grey" sx={{ mb: 2 }}>
-                    You are now Registered.
+                    Your registration has been received. The registration will be viewed by the event coordinators shortly.
                 </Typography>
-                <Button onClick={() => navigate("/events")} innerText={"Go to Events"}></Button>
+                <Button onClick={() => navigate("/events")} variant="contained">Go to Events</Button>
             </CardContent>
         </Card>
     );
@@ -65,211 +57,205 @@ const CompletedContent = () => {
 const NoUserLoggedIn = () => {
     const navigate = useNavigate();
     return (
-        <Card sx={{ width: "min(100%, 400px)" }}>
-            <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
-                <HelpCenterRounded color="warning" sx={{ width: "6rem", height: "6rem" }} />
-                <Typography variant="h5">User Not Found</Typography>
-                <Typography variant="body1" color="grey" sx={{ mb: 2, textAlign: "center" }}>
-                    If you want to proceed with the registration, please log in first
-                </Typography>
-                <Button onClick={() => navigate("/events")} variant="contained" color="primary">
-                    Go to Events
-                </Button>
-            </CardContent>
-        </Card>
+        <div className="no-user">
+            <Card sx={{ width: "min(100%, 400px)" }}>
+                <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
+                    <HelpCenterRounded color="warning" sx={{ width: "6rem", height: "6rem" }} />
+                    <Typography variant="h5">User Not Found</Typography>
+                    <Typography variant="body1" color="grey" sx={{ mb: 2, textAlign: "center" }}>
+                        If you want to proceed with the registration, please log in first
+                    </Typography>
+                    <Button onClick={() => navigate("/events")} variant="contained" color="primary">
+                        Go to Events
+                    </Button>
+                </CardContent>
+            </Card>
+        </div>
     );
 };
 const NoSuchEvent = () => {
     return (
-        <Card sx={{ width: "min(100%, 400px)" }}>
-            <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
-                <HelpCenterRounded color="error" sx={{ width: "6rem", height: "6rem" }} />
-                <Typography variant="h5">No Such Event Exists</Typography>
-                <Typography variant="body1" color="grey" sx={{ mb: 2, textAlign: "center" }}>
-                    Possibly there is a problem in the URL.
-                </Typography>
-                <Button onClick={() => navigate("/events")} variant="contained" color="primary">
-                    Go to Events
-                </Button>
-            </CardContent>
-        </Card>
-    );
-};
-const Loading = () => {
-    return (
-        <Card sx={{ width: "min(100%, 400px)" }}>
-            <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
-                <CircularProgress color="primary" size={80} thickness={5} />
-                <Typography variant="h5">Fetching Data...</Typography>
-                <Typography variant="body1" color="grey" sx={{ mb: 2, textAlign: "center" }}>
-                    While it's loading, shout out 'REBECA'!
-                </Typography>
-            </CardContent>
-        </Card>
+        <div className="no-event">
+            <Card sx={{ width: "min(100%, 400px)" }}>
+                <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
+                    <HelpCenterRounded color="warning" sx={{ width: "6rem", height: "6rem" }} />
+                    <Typography variant="h5">No Such Event Exists</Typography>
+                    <Typography variant="body1" color="grey" sx={{ mb: 2, textAlign: "center" }}>
+                        Possibly there is a problem in the URL.
+                    </Typography>
+                    <Button onClick={() => navigate("/events")} variant="contained" color="primary">
+                        Go to Events
+                    </Button>
+                </CardContent>
+            </Card>
+        </div>
     );
 };
 
-const EventReg = () => {
-    const [activeStep, setActiveStep] = useState(0);
-    const { eventSlug } = useParams();
+export default function EventRegister() {
     const navigate = useNavigate();
-    const [valid, setValid] = useState({ step1: false, step2: false, step3: true });
-    const [file, setFile] = useState(null);
-    const [assets, setAssets] = useState("");
-    const { user, allEvents, eventsLoad } = useAuth();
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [teamName, setTeamName] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [pageLoad, setPageLoad] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
-    const [isReg, setIsReg] = useState(false);
-    const oneEvent = allEvents?.find((ev) => ev.slug === eventSlug);
-    // handling invalid event slug left here
+    const { user, allEvents, userRegs, handleAllUserRegs, showNotification } = useAuth();
+    const { eventSlug } = useParams();
+    const [activeStep, setActiveStep] = useState(0);
+    const [isreg, setIsreg] = useState(false);
+    const [errors, setErrors] = useState({});
+    const curEvent = allEvents.filter((ev) => ev.slug === eventSlug)[0];
+    const takePay = curEvent?.regfee === 0 || user?.email.endsWith("iiests.ac.in");
+
+    const [formData, setFormData] = useState({
+        userId: user?._id,
+        teamName: "",
+        assetUpload: "",
+        teamMem: [], // Start with one empty member
+        paymentSS: "",
+        event: eventSlug,
+    });
 
     useEffect(() => {
-        const checkReg = async () => {
-            try {
-                setPageLoad(true);
-                if (user && oneEvent) {
-                    console.log("Got'em all!!");
-                    const status = await isUserRegistered(oneEvent?._id, user?._id);
-                    console.log("Status of registration of the user");
-                    console.log(status);
-                    setIsReg(status.data.isRegistered);
-                    // if (status.data.isRegistered) setActiveStep(3);
-                    setActiveStep(0);
-                }
-            } catch (err) {
-                console.log(err);
-            } finally {
-                setPageLoad(false);
+        if (user) {
+            setFormData((prev) => ({
+                ...prev,
+                userId: user?._id || "",
+                event: eventSlug || "",
+            }));
+        }
+    }, [user]);
+
+    // --- HANDLERS ---
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        console.log(name, value, e.target);
+        setFormData((prev) => ({ ...prev, [name]: value }));
+        if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+    };
+
+    const handleMemberChange = (index, field, value) => {
+        setFormData((prev) => {
+            const updatedMem = [...prev.teamMem];
+            // Immutable update: create a new object for the specific member
+            updatedMem[index] = { ...updatedMem[index], [field]: value };
+            return { ...prev, teamMem: updatedMem };
+        });
+        // Clear error if it exists
+        if (errors[`${field}_${index}`]) {
+            setErrors((prev) => ({ ...prev, [`${field}_${index}`]: "" }));
+        }
+    };
+
+    const addMember = () => {
+        setFormData((prev) => ({
+            ...prev,
+            teamMem: [...prev.teamMem, { name: "", phone: "" }],
+        }));
+    };
+
+    const removeMember = (index) => {
+        setFormData((prev) => ({
+            ...prev,
+            teamMem: prev.teamMem.filter((_, i) => i !== index),
+        }));
+    };
+
+    const validate = () => {
+        let tempErrors = {};
+        
+        // 1. Team Name Validation (only if it's a team event)
+        if (curEvent?.type === "team" && !formData.teamName.trim()) {
+            tempErrors.teamName = "Team Name is required";
+        }
+    
+        // 2. Asset Link Validation
+        // Logic: Only validate if curEvent.asset exists (is not empty/null)
+        if (curEvent?.asset && !formData.assetUpload.trim()) {
+            tempErrors.assetUpload = "Asset link is required for this event";
+        }
+    
+        // 3. Team Members & Phone Validation
+        // 3.1 Team member length validation
+        const teamLen = formData.teamMem.length
+        if (teamLen < curEvent.minTeamSize || teamLen > curEvent.maxTeamSize) {
+            tempErrors.teamMem = `Team Members must be within ${curEvent.minTeamSize} and ${curEvent.maxTeamSize}`
+        }
+        // 3.2 Indian phone regex: starts with 6-9 and has 10 digits total
+        const phoneRegex = /^[6-9]\d{9}$/;
+    
+        formData.teamMem.forEach((m, i) => {
+            // Name check
+            if (!m.name.trim()) {
+                tempErrors[`name_${i}`] = "Required";
             }
-        };
-        checkReg();
-    }, [user, oneEvent]);
+            
+            // Phone check
+            const phone = m.phone.trim();
+            if (!phone) {
+                tempErrors[`phone_${i}`] = "Required";
+            } else if (!phoneRegex.test(phone)) {
+                tempErrors[`phone_${i}`] = "Invalid 10-digit number";
+            }
+        });
+    
+        setErrors(tempErrors);
+        return !!!Object.keys(tempErrors).some((e) => tempErrors[e].length > 0)
+    };
 
-    const handleNext = () => {
-        console.log(activeStep);
+    const handleNext = async () => {
+        validate()
+        console.log("total errors: ", errors)
+        // Step 1 -> 2 Validation
+        if (curEvent.type === "team" && activeStep === 1 && !validate()) {
+            Object.entries(errors).forEach(([key, value]) => {
+                showNotification(`${key}: ${value}`, 'error');
+              });
+            // showNotification(errors, 'error')
+            return
+        }
+
+        // Step 2 -> 3 (Final Submission)
         if (activeStep === 2) {
-            handleRegister();
+            setIsreg(true);
+            try {
+                console.log("Submitting Data:", formData);
+                // Simulate an API call
+                const res = await createReg(formData);
+                setActiveStep(3);
+                showNotification(`Successfully Registered`, "success");
+                handleAllUserRegs()
+            } catch (err) {
+                console.error("Registration failed", err);
+                showNotification(`Err: ${err.message}`, "error");
+            } finally {
+                setIsreg(false);
+            }
         } else {
-            setActiveStep((prevStep) => prevStep + 1);
+            setActiveStep((prev) => prev + 1);
         }
     };
 
-    const handleBack = () => {
-        setActiveStep((prevStep) => prevStep - 1);
-    };
+    const handleBack = () => setActiveStep((prev) => prev - 1);
 
-    const getStepContent = (step) => {
-        switch (step) {
-            case 0:
-                return (
-                    oneEvent && (
-                        <GetData
-                            setValid={(status) => setValid({ ...valid, step1: status })}
-                            user={user}
-                            selectedItems={selectedItems}
-                            setSelectedItems={setSelectedItems}
-                            mode={oneEvent?.type}
-                            teamName={teamName}
-                            setTeamName={setTeamName}
-                            minSize={oneEvent?.minTeamSize - 1}
-                            maxSize={oneEvent?.maxTeamSize - 1}
-                            eventId={oneEvent?._id}
-                            assets={assets}
-                            setAssets={setAssets}
-                            isAssetReq={oneEvent?.assets}
-                        />
-                    )
-                );
-            case 1:
-                return (
-                    oneEvent && (
-                        <Payment
-                            setValid={() => setValid({ ...valid, step2: true })}
-                            event={"Coolest Event"}
-                            free={
-                                (user.email.endsWith(".iiests.ac.in") && allAreIIESTians(selectedItems)) ||
-                                oneEvent?.registrationFee === 0
-                            }
-                            setFile={setFile}
-                            regfee={oneEvent?.registrationFee}
-                            paymentQR={oneEvent?.paymentQR}
-                        />
-                    )
-                );
-            case 2:
-                return <FinishMessage />;
-            default:
-                return "default";
-        }
-    };
-
-    const handleRegister = async () => {
-        try {
-            setLoading(true);
-            const regData = new FormData();
-            regData.append("eventId", oneEvent?._id);
-            regData.append("userId", user?._id);
-            regData.append("eventSlug", eventSlug);
-            regData.append("eventName", oneEvent?.eventName);
-            regData.append("userEmail", user?.email);
-            regData.append("teamName", teamName);
-            if (oneEvent?.assets) regData.append("assets", assets);
-            if (selectedItems.length > 0)
-                regData.append("teamMembers", JSON.stringify(selectedItems.map((member) => member._id)));
-            const paymentURL = await handleSubmitImage(file);
-            if (file) regData.append("paymentScreenshot", paymentURL);
-
-            const result = await enrollUser(regData);
-            console.log("Registration successful:", result?.data);
-            setActiveStep((prevStep) => prevStep + 1);
-        } catch (err) {
-            console.error("Error:", err);
-            setErrorMsg(JSON.stringify(err));
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleSubmitImage = async (imageFile) => {
-        // <- This will send the selected image to our api
-        try {
-            const res = await postImage({ image: imageFile });
-            console.log(res.data.data.imageUrl);
-            return res.data.data.imageUrl;
-        } catch (err) {
-            console.log(err);
-            const errormsg = err.response ? err.response.data.message : err.message;
-            setErrorMsg(errormsg);
-        }
-    };
-
-    if (pageLoad || eventsLoad)
+    // Guard Clause for Logged Out Users
+    if (!user) {
         return (
-            <div
-                style={{
-                    marginTop: "6rem",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "0.5rem",
-                }}
-            >
-                <Loading />
-            </div>
+            <NoUserLoggedIn />
         );
+    }
 
-    if (user && oneEvent)
+    if (userRegs?.includes(eventSlug)) {
         return (
-            <Container maxWidth="sm" sx={{ mt: "5rem", mb: 5 }}>
-                {isReg && <Alert severity="warning" sx={{ mb: 2 }} color="warning">
-                    <AlertTitle>Repeat Registration</AlertTitle>
-                    You have already registered once for this event. Please make sure this event allows multiple registrations before registering again.
-                </Alert>}
-                <Stepper activeStep={activeStep} alternativeLabel>
+            <Box className="no-user" sx={{ pt: 12, display: "flex", justifyContent: "center" }}>
+                <CompletedContent />
+            </Box>
+        );
+    }
+
+    if (!allEvents.map((e) => e.slug).includes(eventSlug)) {
+        return <NoSuchEvent />
+    }
+
+    return (
+        <Box sx={{ maxWidth: 650, mx: "auto", p: 2, pt: 12 }}>
+            <Paper elevation={4} sx={{ p: { xs: 2, md: 4 }, borderRadius: 3 }}>
+                <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
                     {steps.map((label) => (
                         <Step key={label}>
                             <StepLabel>{label}</StepLabel>
@@ -277,90 +263,176 @@ const EventReg = () => {
                     ))}
                 </Stepper>
 
-                <div style={{ marginTop: "24px" }}>
-                    {activeStep === steps.length ? (
-                        <CompletedContent />
-                    ) : (
-                        <div>
-                            {getStepContent(activeStep)}
-                            {user && (
-                                <div style={{ marginTop: "16px" }}>
-                                    <Button
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
-                                        style={{ marginRight: "8px" }}
-                                    >
-                                        Back
-                                    </Button>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={handleNext}
-                                        disabled={valid[`step${activeStep + 1}`] === false}
-                                        endIcon={<ArrowForward />}
-                                        loading={loading}
-                                    >
-                                        {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                                    </Button>
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-                {errorMsg && (
-                    <Alert color="error">
-                        <AlertTitle>Some Error Occured</AlertTitle>
-                        Some Error occured. detailed Description below:
-                        {errorMsg}
-                    </Alert>
+                {/* --- STEP 0: VERIFY DETAILS --- */}
+                {activeStep === 0 && (
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            Verify Your Identity
+                        </Typography>
+                        <Stack spacing={2} sx={{ mt: 2 }}>
+                            <TextField fullWidth label="Your Name" value={user?.name || "User"} disabled />
+                            <TextField fullWidth label="Registered Email" value={user?.email || ""} disabled />
+                            <Typography variant="caption" color="text.secondary">
+                                * To change these, please go to{" "}
+                                <Link
+                                    to="/userUpdate"
+                                    style={{ color: "var(--accent1)", textDecoration: "none", fontWeight: "bold" }}
+                                >
+                                    profile settings
+                                </Link>
+                                .
+                            </Typography>
+                        </Stack>
+                    </Box>
                 )}
-            </Container>
-        );
-    else if (!oneEvent)
-        return (
-            <div
-                style={{
-                    marginTop: "6rem",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "0.5rem",
-                }}
-            >
-                <NoSuchEvent />
-            </div>
-        );
-    else if (!user)
-        return (
-            <div
-                style={{
-                    marginTop: "6rem",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "0.5rem",
-                }}
-            >
-                <NoUserLoggedIn />
-            </div>
-        );
-    else
-        return (
-            <div
-                style={{
-                    marginTop: "6rem",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "0.5rem",
-                }}
-            >
-                <Loading />
-            </div>
-        );
-};
 
-export default EventReg;
+                {/* --- STEP 1: REGISTRATION FORM --- */}
+                {activeStep === 1 && (
+                    <Box>
+                        <Typography variant="h6" sx={{ mb: 3 }}>
+                            Team Registration
+                        </Typography>
+                        {curEvent.type === "team" && (
+                            <TextField
+                                fullWidth
+                                label="Team Name"
+                                name="teamName"
+                                value={formData.teamName}
+                                onChange={handleInputChange}
+                                error={!!errors.teamName}
+                                helperText={errors.teamName}
+                                sx={{ mb: 3 }}
+                            />
+                        )}
+                        {curEvent.type === "team" && (
+                            <>
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                    Team Members
+                                </Typography>
+                                {formData.teamMem.map((member, index) => (
+                                    <Box key={index} sx={{ display: "flex", gap: 1, mb: 2, alignItems: "flex-start" }}>
+                                        <TextField
+                                            label="Member Name"
+                                            size="small"
+                                            value={member.name}
+                                            onChange={(e) => handleMemberChange(index, "name", e.target.value)}
+                                            error={!!errors[`name_${index}`]}
+                                        />
+                                        <TextField
+                                            label="Phone Number"
+                                            size="small"
+                                            value={member.phone}
+                                            onChange={(e) => handleMemberChange(index, "phone", e.target.value)}
+                                            error={!!errors[`phone_${index}`]}
+                                        />
+                                        {formData.teamMem.length > 1 && (
+                                            <IconButton color="error" onClick={() => removeMember(index)}>
+                                                <DeleteOutline />
+                                            </IconButton>
+                                        )}
+                                    </Box>
+                                ))}
+                                <Button startIcon={<AddCircleOutline />} onClick={addMember} sx={{ mb: 3 }}>
+                                    Add Member
+                                </Button>
+                            </>
+                        )}
+
+                        {curEvent.asset && (
+                            <>
+                                <Typography variant="body1">{curEvent.asset || "Upload"}</Typography>
+                                <TextField
+                                    fullWidth
+                                    label="Assets Link (Google Drive)"
+                                    name="assetUpload"
+                                    variant="filled"
+                                    value={formData.assetUpload}
+                                    onChange={handleInputChange}
+                                    error={!!errors.assetUpload}
+                                    helperText={errors.assetUpload}
+                                    sx={{ mb: 4 }}
+                                />
+                            </>
+                        )}
+
+                        {!curEvent.asset && curEvent.type !== "team" && (
+                            <Alert color="secondary">
+                                <AlertTitle>Team & Asset details is not required</AlertTitle>
+                                All the data we need is pre-filled, event doesn't require team registrations or Asset uploads. Click on
+                                next to complete payment (if required)
+                            </Alert>
+                        )}
+                    </Box>
+                )}
+
+                {/* --- STEP 2: PAYMENT --- */}
+                {activeStep === 2 && (
+                    <Box sx={{ py: 2 }}>
+                        {takePay ? (
+                            <>
+                                <Typography variant="h6">Payment Details</Typography>
+                                <Typography variant="body2" sx={{ my: 2 }}>
+                                    Scan QR to pay ₹{curEvent.regfee === null ? 1 : 0} for <b>{curEvent.name}</b>
+                                </Typography>
+                                <img
+                                    src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=PayFor-${eventSlug}`}
+                                    alt="QR"
+                                    style={{ borderRadius: "8px", border: "1px solid #eee", marginBottom: "2rem" }}
+                                />
+                                <TextField
+                                    fullWidth
+                                    label="Payment ScreenShot (Google Drive)"
+                                    name="paymentSS"
+                                    value={formData.paymentSS}
+                                    onChange={handleInputChange}
+                                    error={!!errors.paymentSS}
+                                    helperText={errors.paymentSS}
+                                    sx={{ mb: 4 }}
+                                />
+                            </>
+                        ) : (
+                            <Alert color="secondary">
+                                <AlertTitle>No Payment needed</AlertTitle>
+                                {curEvent.regfee === 0
+                                    ? "Event needs no Payment to register"
+                                    : "Registration is Free for IIESTians"}
+                            </Alert>
+                        )}
+                    </Box>
+                )}
+
+                {/* --- STEP 3: SUCCESS --- */}
+                {activeStep === 3 && (
+                    <Box sx={{ textAlign: "center", py: 5 }}>
+                        <CheckCircle color="success" sx={{ fontSize: 60, mb: 2 }} />
+                        <Typography variant="h5">Success!</Typography>
+                        <Typography color="text.secondary" sx={{ mt: 1 }}>
+                            Your team <b>{formData.teamName}</b> is registered.
+                        </Typography>
+                        <Button sx={{ mt: 3 }} variant="outlined" onClick={() => navigate("/events")}>
+                            Back to Events
+                        </Button>
+                    </Box>
+                )}
+
+                {/* --- NAVIGATION --- */}
+                <Box sx={{ display: "flex", justifyContent: "space-between", mt: 4 }}>
+                    <Button disabled={activeStep === 0 || activeStep === 3 || isreg} onClick={handleBack}>
+                        Back
+                    </Button>
+
+                    {activeStep < 3 && (
+                        <Button
+                            variant="contained"
+                            onClick={handleNext}
+                            disabled={isreg}
+                            startIcon={isreg ? <CircularProgress size={20} color="inherit" /> : null}
+                        >
+                            {isreg ? "Registering..." : activeStep === 2 ? "Finish & Register" : "Next"}
+                        </Button>
+                    )}
+                </Box>
+            </Paper>
+        </Box>
+    );
+}

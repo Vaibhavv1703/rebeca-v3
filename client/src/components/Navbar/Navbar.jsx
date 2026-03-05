@@ -4,7 +4,7 @@ import ResponsiveDrawer from "./ResponsiveDrawer";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../../AuthContext";
-// import AccountMenu from "../AccountMenu/AccountMenu";
+import AccountMenu from "../AccountMenu/AccountMenu";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
@@ -25,7 +25,6 @@ const Navbar = () => {
     return (
         <>
             <div className="navbar">
-                {/* <Progressbar /> */}
 
                 {/* {user && <Notification message={`Welcome, ${user.name.split(' ')[0]}`} />} */}
                 {/* <LoginForm open={loginOpen} setOpen={setLoginOpen} /> */}
@@ -68,10 +67,10 @@ const Navbar = () => {
                             <NavLink id="nav-merchandise" to="/merchandise" className={"item"}>
                                 Merchandise
                             </NavLink>
-                            {/* <AccountMenu /> */}
+                            <AccountMenu />
                         </>
                     )}
-                    {/* {width < 720 && (
+                    {width < 720 && (
                         <Box
                             sx={{
                                 display: "flex",
@@ -79,7 +78,7 @@ const Navbar = () => {
                         >
                             <AccountMenu />
                         </Box>
-                    )} */}
+                    )}
                 </div>
             </div>
 

@@ -21,7 +21,7 @@ import {
     MenuBook,
 } from "@mui/icons-material";
 const AuthContext = createContext();
-import { loginWithGoogle, logoutUser, checkAuthStatus, getAllEvents, getAllTeams } from "./services/api";
+import { loginWithGoogle, logoutUser, checkAuthStatus, getAllEvents, getAllTeams, getAllUserRegs } from "./services/api";
 import { googleLogout } from "@react-oauth/google";
 
 export const teamIcons = {
@@ -55,6 +55,7 @@ export const AuthProvider = ({ children }) => {
     const [allTeams, setAllTeams] = useState([]);
     const [teamsData, setTeamsData] = useState({});
     const { Notification, showNotification } = useNotification();
+    const [userRegs, setUserRegs] = useState([])
 
     const handlesetEventsByDay = (e) => {
         const grouped = {
@@ -94,6 +95,19 @@ export const AuthProvider = ({ children }) => {
             showNotification(`Err: ${err}`, 'error');
         }
     }, []);
+    
+    const handleAllUserRegs = async () => {
+        try {
+            const ev = await getAllUserRegs();
+            console.log("All events registered by user: ", ev.data.data.regs);
+            setUserRegs(ev.data.data.regs.map((e) => e.event));
+        } catch (err) {
+            showNotification(`Err: ${err}`, 'error');
+        }
+    }
+    useEffect(() => {
+        handleAllUserRegs();
+    }, []);
 
     useEffect(() => {
         // check auth status
@@ -102,8 +116,6 @@ export const AuthProvider = ({ children }) => {
             try {
                 // This request automatically sends the 'jwt' cookie if it exists
                 const res = await checkAuthStatus();
-                console.log(res);
-
                 if (res.data.status === "success") {
                     console.log("login success")
                     setUser(res.data.data.user);
@@ -120,9 +132,9 @@ export const AuthProvider = ({ children }) => {
         };
         
         // need to umcomment this for google login
-        // initAuth();
-        // console.log("What we set as user:")
-        // console.log(user)
+        initAuth();
+        console.log("What we set as user:")
+        console.log(user)
     }, []);
 
     const handleLoginSuccess = async (response) => {
@@ -156,6 +168,7 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider
             value={{
                 user,
+                setUser,
                 handleLoginSuccess,
                 handleLogout,
                 allEvents,
@@ -165,7 +178,9 @@ export const AuthProvider = ({ children }) => {
                 userLoad,
                 setUserLoad,
                 showNotification,
-                allEventsByDay
+                allEventsByDay,
+                userRegs,
+                handleAllUserRegs
             }}
         >
             <Notification />

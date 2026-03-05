@@ -29,7 +29,7 @@ import { updateUser } from "../../services/api";
 const NoUser = () => {
     const navigate = useNavigate();
     return (
-        <Card sx={{ width: "min(100%, 400px)" }}>
+        <Card sx={{ width: "min(100%, 400px)", pt: '4rem' }}>
             <CardContent style={{ display: "flex", alignItems: "center", flexDirection: "column", width: "100%" }}>
                 <PersonSearch color="error" sx={{ width: "6rem", height: "6rem" }} />
                 <Typography variant="h5">No User found</Typography>
@@ -45,7 +45,7 @@ const NoUser = () => {
 };
 
 const ProfileDashboard = () => {
-    const { user } = useAuth(); // Assuming API is now 'updateUser'
+    const { user, setUser } = useAuth(); // Assuming API is now 'updateUser'
     const [dopen, setDopen] = useState(false);
     const [popup, setPopUp] = useState(false);
     const [message, setMessage] = useState("");
@@ -89,7 +89,7 @@ const ProfileDashboard = () => {
         setLoading(true);
         try {
             // Filter only changed fields to send to API
-            const updatePayload = {};
+            const updatePayload = {name: user.name, email: user.email};
             let hasChanges = false;
 
             Object.keys(userData).forEach((key) => {
@@ -105,8 +105,8 @@ const ProfileDashboard = () => {
             }
 
             // Call the renamed API
-            await updateUser(updatePayload);
-
+            const upd = await updateUser(updatePayload);
+        
             showToast("Success!", "Profile updated successfully.", "success");
         } catch (err) {
             const detailed = err?.response?.data?.message || err.message;
@@ -125,28 +125,28 @@ const ProfileDashboard = () => {
 
     if (!user) {
         return (
-            <Container maxWidth="md" sx={{ mt: "5rem", display: "flex", justifyContent: "center" }}>
+            <Container maxWidth="md" sx={{ pt: "5rem", display: "flex", justifyContent: "center" }}>
                 <NoUser />
             </Container>
         );
     }
 
     return (
-        <Container maxWidth="md" sx={{ mt: "5rem", color: "#fff" }}>
-            <Paper sx={{ p: 4, borderRadius: 2, bgcolor: "rgb(17, 23, 29)", color: "#fff" }}>
+        <Container maxWidth="md" sx={{ pt: "5rem", color: "#fff" }}>
+            <Paper sx={{ p: 4, borderRadius: 2, bgcolor: "rgb(19, 8, 39)", color: "#fff" }}>
                 <Typography variant="h4" align="center" gutterBottom>
                     Profile Dashboard
                 </Typography>
 
-                <Grid2 container spacing={4} sx={{ mt: 2 }}>
+                <Grid2 container spacing={4} sx={{ pt: 2 }}>
                     {/* User Image - Read Only */}
                     <Grid2 size={{ xs: 12 }} align="center">
                         <Avatar
                             src={user?.image}
-                            sx={{ width: 180, height: 180, border: "3px solid var(--accent1)" }}
+                            sx={{ width: 180, height: 180, border: "3px solid #a65cec" }}
                         />
                         <Typography variant="caption" sx={{ mt: 1, display: "block", color: "gray" }}>
-                            Complete your profile to take part in events
+                            Complete your profile to take part in events!
                         </Typography>
                     </Grid2>
 
@@ -233,6 +233,7 @@ const ProfileDashboard = () => {
                     <Grid2 size={{ xs: 12 }} align="center" sx={{ mt: 2 }}>
                         <Button
                             variant="contained"
+                            color="secondary"
                             size="large"
                             onClick={() => setDopen(true)}
                             loading={loading}

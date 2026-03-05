@@ -26,6 +26,7 @@ const Sponsors2 = () => {
             <section>
                 <h2>Past Sponsors</h2>
                 <SponsorsMarquee sponsorsList={spdata}/>
+                <SponsorsMarquee sponsorsList={spdata}/>
             </section>
             <section className="college">
                 <h1>Lets start with a little about our College</h1>

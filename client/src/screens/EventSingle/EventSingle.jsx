@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./EventSingle.css";
-import Button from "../../components/Button/Button";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
 import { extractFullDate, extractTime } from "../../components/EventList/EventList";
 import RoundCard from "./RoundCard";
-import { Alert } from "@mui/material";
-import { Warning } from "@mui/icons-material";
+import { Alert, ButtonGroup, Button, Chip } from "@mui/material";
+import { CheckCircleRounded, Tag, Warning } from "@mui/icons-material";
 import CustomAvatar from "../../components/CustomAvatar/CustomAvatar";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import GavelIcon from "@mui/icons-material/Gavel";
+import { Person2Rounded } from "@mui/icons-material";
 
 function isGoogleForm(url) {
     if (!url) return false;
@@ -21,7 +22,7 @@ function isGoogleForm(url) {
 const EventSingle = () => {
     const navigate = useNavigate();
     const { eventSlug } = useParams();
-    const { allEvents, user } = useAuth();
+    const { allEvents, user, userRegs } = useAuth();
     const [isReg, setIsReg] = useState(false);
     const [loading, setLoading] = useState(false);
     const oneEvent = allEvents.find((ev) => ev.slug === eventSlug);
@@ -74,7 +75,7 @@ const EventSingle = () => {
                 >
                     <div className="event-single-overlay">
                         <div className="eposter">
-                            {oneEvent.regfee ? (<div className="regfee">Fee ₹ {oneEvent.regfee}</div>) : <></>}
+                            {oneEvent.regfee ? <div className="regfee">Fee ₹ {oneEvent.regfee}</div> : <></>}
                             <img src={oneEvent.poster} alt={"Poster"} />
                         </div>
                         <div className="event-single-header">
@@ -82,12 +83,24 @@ const EventSingle = () => {
                                 <span className="event-single-badge">{oneEvent?.type}</span>
                             )}
                             <h1 className="event-single-title">{oneEvent?.name}</h1>
-                            {/* <p className="event-single-subtitle">
-                            {extractFullDate(oneEvent?.rounds[0]?.startTime, true)} to{" "}
-                            {extractFullDate(oneEvent?.rounds[0]?.endTime, true)}
-                        </p> */}
+                            {oneEvent?.type !== 'performance' && <ButtonGroup variant="contained" size="large">
+                                {userRegs.includes(eventSlug) ? (
+                                    <Button startIcon={<CheckCircleRounded />} color="success">
+                                    Registered
+                                </Button>
+                                ) : (
+                                    <Button startIcon={<Person2Rounded />} onClick={() => navigate("register")}>
+                                        Register
+                                    </Button>
+                                )}
+                                {oneEvent?.rulesdoc && (
+                                    <Button endIcon={<GavelIcon />} href={oneEvent?.rulesdoc || "rulesdoc"} color="warning" target="_blank">
+                                        View Rules
+                                    </Button>
+                                )}
+                            </ButtonGroup>}
                             <div className="eposter-mobile">
-                                {oneEvent?.regfee ? (<div className="regfee">Fee ₹ {oneEvent.regfee}</div>) : <></>}
+                                {oneEvent?.regfee ? <div className="regfee">Fee ₹ {oneEvent.regfee}</div> : <></>}
                                 <img src={oneEvent.poster} alt={"Poster"} />
                             </div>
                         </div>
@@ -177,18 +190,28 @@ const EventSingle = () => {
                     </div>
                 </div>
 
-                {oneEvent.coords.length ? (<div className="coordinators event-single-content" style={{ paddingTop: 0 }}>
-                    <h2 className="schedule-title">Coordinators</h2>
-                    <div className="coords-list">
-                        {oneEvent.coords.map((e, i) => {
-                            console.log("coordinator");
-                            console.log(e);
-                            return (
-                                <CustomAvatar title={e.name} subtitle={e.role} phone={e.phone} src={e.image} key={i} />
-                            );
-                        })}
+                {oneEvent.coords.length ? (
+                    <div className="coordinators event-single-content" style={{ paddingTop: 0 }}>
+                        <h2 className="schedule-title">Coordinators</h2>
+                        <div className="coords-list">
+                            {oneEvent.coords.map((e, i) => {
+                                console.log("coordinator");
+                                console.log(e);
+                                return (
+                                    <CustomAvatar
+                                        title={e.name}
+                                        subtitle={e.role}
+                                        phone={e.phone}
+                                        src={e.image}
+                                        key={i}
+                                    />
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>) : <></>}
+                ) : (
+                    <></>
+                )}
             </div>
         )
     );

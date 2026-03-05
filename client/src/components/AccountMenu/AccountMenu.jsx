@@ -55,7 +55,7 @@ export default function AccountMenu() {
     return user ? (
         <React.Fragment>
             {/* The Trigger Button */}
-            <Tooltip title="Account settings">
+            <Tooltip title={`Hi, ${user.name}`}>
                 <IconButton
                     onClick={handleClick}
                     size="small"
@@ -64,7 +64,7 @@ export default function AccountMenu() {
                     aria-expanded={open ? 'true' : undefined}
                 >
                     <Avatar
-                        sx={{ width: 32, height: 32 }}
+                        sx={{ width: 40, height: 40, border: '2px solid var(--accent1)'}}
                         src={user.image}
                         alt={user.name}
                     >

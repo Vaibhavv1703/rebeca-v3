@@ -30,3 +30,7 @@ export const updateUser = (data) =>
 export const getAllUsers = () => api.get("/user");
 export const enrollUser = () => true
 export const isUserRegistered = () => true
+
+// event registration api
+export const createReg = (data) => api.post("/evregister", data);
+export const getAllUserRegs = () => api.get("/evregister")
