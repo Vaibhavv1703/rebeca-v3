@@ -812,7 +812,9 @@
                 "tagline": "I am stuck here ..... UwU"
             },
             {
-                "name": "Suraj Kashyap"
+                "img": "",
+                "name": "Suraj Kashyap",
+                "tagline": "Coding is like humor, Bad to explain it."
             }
         ]
     }
