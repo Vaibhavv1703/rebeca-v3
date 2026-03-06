@@ -101,9 +101,8 @@ export default function EventRegister() {
     const [errors, setErrors] = useState({});
     const curEvent = allEvents.filter((ev) => ev.slug === eventSlug)[0];
     const takePay = (curEvent?.regfee !== 0) && (!user?.email.endsWith("iiests.ac.in"));
-    console.log(curEvent?.regfee !== 0)
-    console.log(!user?.email.endsWith("iiests.ac.in"))
-    console.log(user?.email)
+    const canMoveForward = user && (user.phone && user.dept && user.college && user.passout_year);
+
     const [formData, setFormData] = useState({
         userId: user?._id,
         teamName: "",
@@ -202,6 +201,10 @@ export default function EventRegister() {
     };
 
     const handleNext = async () => {
+        if (activeStep === 0 && !canMoveForward) {
+            showNotification("Please update your profile details first.", "error");
+            return;
+        }
         validate()
         console.log("total errors: ", errors)
         // Step 1 -> 2 Validation
@@ -272,6 +275,13 @@ export default function EventRegister() {
                         <Typography variant="h6" gutterBottom>
                             Verify Your Identity
                         </Typography>
+                        {/* ADD THIS ALERT */}
+                        {!canMoveForward && (
+                            <Alert severity="warning" sx={{ mt: 2, mb: 2 }}>
+                                <AlertTitle>Incomplete Profile</AlertTitle>
+                                Please complete your profile details (Phone, Department, College, Passout Year) to proceed with registration.
+                            </Alert>
+                        )}
                         <Stack spacing={2} sx={{ mt: 2 }}>
                             <TextField fullWidth label="Your Name" value={user?.name || "User"} disabled />
                             <TextField fullWidth label="Registered Email" value={user?.email || ""} disabled />
@@ -428,7 +438,7 @@ export default function EventRegister() {
                         <Button
                             variant="contained"
                             onClick={handleNext}
-                            disabled={isreg}
+                            disabled={isreg || (activeStep === 0 && !canMoveForward)}
                             startIcon={isreg ? <CircularProgress size={20} color="inherit" /> : null}
                         >
                             {isreg ? "Registering..." : activeStep === 2 ? "Finish & Register" : "Next"}
