@@ -106,7 +106,7 @@ export const AuthProvider = ({ children }) => {
     const handleAllUserRegs = async () => {
         try {
             const ev = await getAllUserRegs();
-            console.log("All events registered by user: ", ev.data.data.regs);
+            // console.log("All events registered by user: ", ev.data.data.regs);
             setUserRegs(ev.data.data.regs.map((e) => e.event));
         } catch (err) {
             showNotification(`Err: ${err.response?.data?.message || 'error fetching userRegs'}`, "error");
@@ -124,14 +124,14 @@ export const AuthProvider = ({ children }) => {
                 // This request automatically sends the 'jwt' cookie if it exists
                 const res = await checkAuthStatus();
                 if (res.data.status === "success") {
-                    console.log("login success");
+                    // console.log("login success");
                     setUser(res.data.data.user);
                     showNotification(`Welcome, ${res.data.data.user.name}`, "success");
                 } else {
                     showNotification(`Error occured while logging in the user.`, "error");
                 }
             } catch (err) {
-                console.log(err)
+                // console.log(err)
                 setUser(null);
                 showNotification(`${err.response.data.message}`, "warning");
             } finally {
@@ -141,8 +141,8 @@ export const AuthProvider = ({ children }) => {
 
         // need to umcomment this for google login
         initAuth();
-        console.log("What we set as user:");
-        console.log(user);
+        // console.log("What we set as user:");
+        // console.log(user);
     }, []);
 
     const handleLoginSuccess = async (response) => {
@@ -152,7 +152,7 @@ export const AuthProvider = ({ children }) => {
             setUser(res.data.data.user);
             showNotification("Login successful!", "success");
         } catch (err) {
-            console.log("Login Failed on Backend:", err.response?.data?.message || err.message);
+            // console.log("Login Failed on Backend:", err.response?.data?.message || err.message);
             showNotification("Login failed. Please try again.", "error");
         } finally {
             setUserLoad(false);

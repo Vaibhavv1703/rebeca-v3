@@ -226,7 +226,6 @@ export default function EventRegister() {
             showNotification("Please fix the errors before proceeding.", "error");
             return;
         }
-        console.log("total errors: ", errors);
         // Step 1 -> 2 Validation
         if (curEvent.type === "team" && activeStep === 1 && !validate()) {
             Object.entries(errors).forEach(([key, value]) => {
@@ -240,7 +239,6 @@ export default function EventRegister() {
         if (activeStep === 2) {
             setIsreg(true);
             try {
-                console.log("Submitting Data:", formData);
                 // Simulate an API call
                 const res = await createReg(formData);
                 setActiveStep(3);

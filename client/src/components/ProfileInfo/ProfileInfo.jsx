@@ -98,7 +98,6 @@ const ProfileDashboard = () => {
             Object.keys(userData).forEach((key) => {
                 if (userData[key] !== user[key]) {
                     updatePayload[key] = userData[key];
-                    console.log("changes: ", key, userData[key], user[key])
                     setChanges(true)
                 }
             });
@@ -107,11 +106,8 @@ const ProfileDashboard = () => {
                 showToast("No Changes Found", "No modifications were detected.", "warning");
                 return;
             }
-            console.log("changes: ", changes)
-
             // Call the renamed API
             const upd = await updateUser(updatePayload);
-            console.log("upd user success: ", upd)
             // update the user
             setUser(upd?.data?.data?.user)
 

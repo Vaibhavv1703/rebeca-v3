@@ -236,8 +236,6 @@ const EventSingle = () => {
                         <h2 className="schedule-title">Coordinators</h2>
                         <div className="coords-list">
                             {oneEvent.coords.map((e, i) => {
-                                console.log("coordinator");
-                                console.log(e);
                                 return (
                                     <CustomAvatar
                                         title={e.name}
