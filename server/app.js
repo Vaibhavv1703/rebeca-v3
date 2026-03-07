@@ -92,9 +92,29 @@ app.use("/api/v3/evregister", regRouter); // <- Event Register routes
 
 // ERROR HANDLING MIDDLEWARE
 // Handle non-existing routes
-app.all("/", (req, res, next) => {
-    // <- Middleware to handle Non-existing Routes
-    next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+app.all(/.*/, (req, res, next) => {
+    // Professional wording: Mention the method and use 'endpoint'
+    const message = `The requested endpoint '${req.originalUrl}' with method [${req.method}] was not found on this server.`;
+    next(new AppError(message, 404));
+});
+
+// 3. GLOBAL ERROR MIDDLEWARE
+// This MUST have 4 arguments (err, req, res, next)
+app.use((err, req, res, next) => {
+    err.statusCode = err.statusCode || 500;
+    
+    // Convert 'Fail' to lowercase 'fail' for standard naming conventions
+    const status = `${err.statusCode}`.startsWith('4') ? 'fail' : 'error';
+
+    res.status(err.statusCode).json({
+        status: status,
+        error: {
+            code: err.statusCode === 404 ? 'RESOURCE_NOT_FOUND' : 'INTERNAL_SERVER_ERROR',
+            message: err.message,
+            timestamp: new Date().toISOString(),
+            path: req.originalUrl
+        }
+    });
 });
 
 module.exports = app;
