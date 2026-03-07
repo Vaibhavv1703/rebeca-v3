@@ -80,7 +80,7 @@ export default function App() {
     if (user && !passkeyVerified && location.pathname !== "/signin") {
         return <Navigate to="/signin" replace />;
     }
-    
+
     //to (B) here
 
     // Fully authenticated but trying to access signin → go to dashboard

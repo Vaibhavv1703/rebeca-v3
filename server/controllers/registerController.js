@@ -79,7 +79,7 @@ exports.getAllReg = catchAsync(async (req, res, next) => {
             return res.status(200).json({
                 status: "success",
                 results: 0,
-                data: [],
+                data: { regs: [] },
             });
         }
 
