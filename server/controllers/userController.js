@@ -43,10 +43,18 @@ exports.updateUser = catchAsync(async (req, res, next) => {
         if (!updation) {
             return next(new AppError("No user found with that ID", 404));
         }
-
-        await sendEmail('account-update', req.body.email, {
-        name: req.body.name
+        setImmediate(async () => {
+            try {
+                await sendEmail('account-update', req.body.email, {
+                    name: req.body.name
+                    });
+                console.log(`Email sent successfully to ${req.user.email}`);
+            } catch (err) {
+                // Log it to a service like Sentry or a log file so you know it failed
+                console.error("BACKGROUND EMAIL ERROR:", err.message);
+            }
         });
+
 
         res.status(200).json({
             status: "success",

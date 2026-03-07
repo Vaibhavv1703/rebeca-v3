@@ -4,23 +4,29 @@ const Register = require("../models/RegisterModel");
 const sendEmail = require("../utils/email");
 
 exports.createReg = catchAsync(async (req, res, next) => {
-    console.log("Register Creation");
-    try {
-        const regData = req.body;
-        const creation = await Register.create(regData);
-        await sendEmail('event-registration', req.user.email, {
-            name: req.user.name,
-            eventName: req.body.event,
-        });
-        res.status(200).json({
-            status: "success",
-            message: "Registration Created successfully.",
-            data: { creation: creation },
-        });
-    } catch (err) {
-        console.log("error registering: ", err);
-        next(err);
-    }
+    const regData = req.body;
+    const creation = await Register.create(regData);
+
+    // 1. Send response immediately
+    res.status(200).json({
+        status: "success",
+        message: "Registration Created successfully.",
+        data: { creation },
+    });
+
+    // 2. Fire and forget safely in the background
+    setImmediate(async () => {
+        try {
+            await sendEmail('event-registration', req.user.email, {
+                name: req.user.name,
+                eventName: req.body.event,
+            });
+            console.log(`Email sent successfully to ${req.user.email}`);
+        } catch (err) {
+            // Log it to a service like Sentry or a log file so you know it failed
+            console.error("BACKGROUND EMAIL ERROR:", err.message);
+        }
+    });
 });
 
 exports.updateReg = catchAsync(async (req, res, next) => {

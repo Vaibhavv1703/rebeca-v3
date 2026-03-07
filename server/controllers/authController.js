@@ -65,9 +65,18 @@ exports.googleAuth = catchAsync(async (req, res, next) => {
             googleId: sub,
         });
         statusCode = 201; // Created
-        await sendEmail('welcome', email, {
-            name: name,
+        setImmediate(async () => {
+            try {
+                await sendEmail('welcome', email, {
+                    name: name,
+                });
+                console.log(`Email sent successfully to ${req.user.email}`);
+            } catch (err) {
+                // Log it to a service like Sentry or a log file so you know it failed
+                console.error("BACKGROUND EMAIL ERROR:", err.message);
+            }
         });
+
     }
 
     // 5. Send your custom App JWT via Cookie (The Jonas Way)
