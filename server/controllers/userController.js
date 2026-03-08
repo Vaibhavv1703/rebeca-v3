@@ -3,7 +3,7 @@ const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const uploadToCloudinary = require("../utils/cloudinary").uploadToCloudinary;
 const deleteFromCloudinary = require("../utils/cloudinary").deleteFromCloudinary;
-const sendEmail = require("../utils/email");
+// const sendEmail = require("../utils/email");
 
 exports.createUser = catchAsync(async (userData) => {
     const user = await User.create({
@@ -43,17 +43,17 @@ exports.updateUser = catchAsync(async (req, res, next) => {
         if (!updation) {
             return next(new AppError("No user found with that ID", 404));
         }
-        setImmediate(async () => {
-            try {
-                await sendEmail('account-update', req.body.email, {
-                    name: req.body.name
-                    });
-                console.log(`Email sent successfully to ${req.user.email}`);
-            } catch (err) {
-                // Log it to a service like Sentry or a log file so you know it failed
-                console.error("BACKGROUND EMAIL ERROR:", err.message);
-            }
-        });
+        // setImmediate(async () => {
+        //     try {
+        //         await sendEmail('account-update', req.body.email, {
+        //             name: req.body.name
+        //             });
+        //         console.log(`Email sent successfully to ${req.user.email}`);
+        //     } catch (err) {
+        //         // Log it to a service like Sentry or a log file so you know it failed
+        //         console.error("BACKGROUND EMAIL ERROR:", err.message);
+        //     }
+        // });
 
 
         res.status(200).json({

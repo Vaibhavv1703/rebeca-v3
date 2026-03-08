@@ -1,7 +1,7 @@
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const Register = require("../models/RegisterModel");
-const sendEmail = require("../utils/email");
+// const sendEmail = require("../utils/email");
 
 exports.createReg = catchAsync(async (req, res, next) => {
     const regData = req.body;
@@ -15,18 +15,18 @@ exports.createReg = catchAsync(async (req, res, next) => {
     });
 
     // 2. Fire and forget safely in the background
-    setImmediate(async () => {
-        try {
-            await sendEmail('event-registration', req.user.email, {
-                name: req.user.name,
-                eventName: req.body.event,
-            });
-            console.log(`Email sent successfully to ${req.user.email}`);
-        } catch (err) {
-            // Log it to a service like Sentry or a log file so you know it failed
-            console.error("BACKGROUND EMAIL ERROR:", err.message);
-        }
-    });
+    // setImmediate(async () => {
+    //     try {
+    //         await sendEmail('event-registration', req.user.email, {
+    //             name: req.user.name,
+    //             eventName: req.body.event,
+    //         });
+    //         console.log(`Email sent successfully to ${req.user.email}`);
+    //     } catch (err) {
+    //         // Log it to a service like Sentry or a log file so you know it failed
+    //         console.error("BACKGROUND EMAIL ERROR:", err.message);
+    //     }
+    // });
 });
 
 exports.updateReg = catchAsync(async (req, res, next) => {
