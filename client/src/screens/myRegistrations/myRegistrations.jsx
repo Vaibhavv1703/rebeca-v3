@@ -8,8 +8,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import GroupsIcon from "@mui/icons-material/Groups";
 import PersonIcon from "@mui/icons-material/Person";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import Headingv2 from "../../components/Headingv2/Headingv2";
-import { useAuth } from "../../AuthContext";
+import { useAuth } from "../../AuthContext"; 
 import "./MyRegistrations.css";
 
 const formatEventName = (slug) => {
@@ -22,8 +21,14 @@ const formatDate = (dateString) =>
         day: "2-digit", month: "short", year: "numeric",
     });
 
-const RegistrationCard = ({ reg }) => {
+const RegistrationCard = ({ reg, allEvents }) => {
     const isTeam = reg.teamMem?.length > 0;
+
+    // 1. Find the specific event in the global list using the slug
+    const eventDetails = allEvents.find((e) => e.slug === reg.event);
+
+    // 2. Check if the regfee is greater than 0
+    const requiresPayment = eventDetails && eventDetails.regfee > 0;
 
     return (
         <Card variant="outlined" sx={{ mb: 2 }}>
@@ -66,16 +71,16 @@ const RegistrationCard = ({ reg }) => {
                     </>
                 )}
 
-                {/* Payment & Asset — always shown */}
+                {/* Payment & Asset Section */}
                 <Divider sx={{ my: 1.5 }} />
                 <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
 
-                    {/* Payment — always rendered */}
-                    <Box>
-                        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 0.5 }}>
-                            PAYMENT
-                        </Typography>
-                        {reg.paymentSS && reg.paymentSS.trim() !== "" ? (
+                    {/* ONLY render the Payment box if it requires payment AND a link exists */}
+                    {requiresPayment && reg.paymentSS && reg.paymentSS.trim() !== "" && (
+                        <Box>
+                            <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 0.5 }}>
+                                PAYMENT
+                            </Typography>
                             <Chip
                                 size="small"
                                 label="View Receipt"
@@ -85,10 +90,8 @@ const RegistrationCard = ({ reg }) => {
                                 color="success"
                                 variant="outlined"
                             />
-                        ) : (
-                            <Chip size="small" label="Pending" color="warning" variant="outlined" />
-                        )}
-                    </Box>
+                        </Box>
+                    )}
 
                     {/* Asset — only if present */}
                     {reg.assetUpload && reg.assetUpload.trim() !== "" && (
@@ -114,25 +117,29 @@ const RegistrationCard = ({ reg }) => {
 };
 
 const MyRegistrations = () => {
-    const { userRegs, handleAllUserRegs, userLoad } = useAuth();
+    const { userRegs, handleAllUserRegs, userLoad, allEvents } = useAuth();
 
     return (
-        <Container maxWidth="md" sx={{ py: 8 }}>
+        <Container maxWidth="md" sx={{ pt: 14, pb: 8 }}>
             {/* 1. Heading isolated and centered */}
             <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
-                <Headingv2 title="MY REGISTRATIONS" />
+                <Typography 
+                    variant="h3" 
+                    component="h1" 
+                    fontWeight={700} 
+                    sx={{ textTransform: "uppercase", letterSpacing: 1 }}
+                >
+                    MY REGISTRATIONS
+                </Typography>
             </Box>
 
-            {/* 2. New "Toolbar" row right above the cards */}
+            {/* 2. "Toolbar" row right above the cards */}
             <Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", mb: 2 }}>
-                
-                {/* Shows the count on the left side of the refresh button if they have registrations */}
                 {!userLoad && userRegs.length > 0 && (
                     <Typography variant="body2" color="text.secondary" sx={{ flexGrow: 1 }}>
                         {userRegs.length} registration{userRegs.length !== 1 ? "s" : ""}
                     </Typography>
                 )}
-
                 <Tooltip title="Refresh">
                     <IconButton onClick={handleAllUserRegs} disabled={userLoad}>
                         <RefreshIcon />
@@ -154,9 +161,8 @@ const MyRegistrations = () => {
                 </Card>
             ) : (
                 <>
-                    {/* The old count text was removed from here and moved to the toolbar above */}
                     {userRegs.map((reg) => (
-                        <RegistrationCard key={reg._id} reg={reg} />
+                        <RegistrationCard key={reg._id} reg={reg} allEvents={allEvents} />
                     ))}
                 </>
             )}
