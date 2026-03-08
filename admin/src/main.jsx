@@ -31,6 +31,7 @@ const router = createBrowserRouter([
                 path: "/",
                 Component: ProtectedRouteLayout,
                 children: [
+                    {index: true, Component: Admin},
                     { path: "admin", Component: Admin },
                     { path: "events/", Component: Events },
                     { path: "registrations", Component: Registrations },
