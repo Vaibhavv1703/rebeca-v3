@@ -1,128 +1,53 @@
-[
-  {
+[{
     "id": 1,
-    "team": "BECA Magazine",
+    "team": "Secretary General",
     "members": [
       {
-        "name": "Shubham Kumar",
+        "name": "Aniket .c. Nimje",
         "position": "Head"
       },
       {
-        "name": "Anand Tiwari",
+        "name": "Niloy Mondal",
         "position": "Head"
       },
       {
-        "name": "Erikilla Ashish",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Sarthak Singh",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Amit Kiran Das",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Tamanna Jana",
-        "position": "Associate"
-      },
-      {
-        "name": "Aratrika Das",
+        "name": "Dipu Shaw",
         "position": "Head"
-      },
-      {
-        "name": "Barla Jhonny Anirudh",
-        "position": "Associate"
       }
     ]
   },
   {
     "id": 2,
-    "team": "Business and Alumni Meet",
+    "team": "Finance",
     "members": [
       {
-        "name": "Yaswanth Pedapudi",
+        "name": "Sayani Biswas",
         "position": "Head"
       },
       {
-        "name": "Aditya Singh",
+        "name": "Swyam tiwari",
         "position": "Head"
       },
       {
-        "name": "Deepak Garg",
+        "name": "Vedant Dhanraj Bagade",
         "position": "Head"
       },
       {
-        "name": "Keshav bhagat",
+        "name": "Jayesh Saini",
         "position": "Associate Head"
       },
       {
-        "name": "Sneha Mosha",
+        "name": "Bontha Likhith",
         "position": "Associate Head"
       },
       {
-        "name": "Sagnik Ganguly",
+        "name": "Vipin Kr. Chaudhary",
         "position": "Associate Head"
-      },
-      {
-        "name": "Jigyasha Kumari",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Prabhat Tiwari",
-        "position": "Associate"
-      },
-      {
-        "name": "Akarsh Srivastava",
-        "position": "Associate"
       }
     ]
   },
   {
     "id": 3,
-    "team": "Competition and Seminars",
-    "members": [
-      {
-        "name": "Abhas Maji",
-        "position": "Head"
-      },
-      {
-        "name": "Ritik Yadav",
-        "position": "Head"
-      },
-      {
-        "name": "Chennupalli Sathwik",
-        "position": "Head"
-      },
-      {
-        "name": "Suchetana Bhukta",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Jit Malakar",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Sumit Kumar",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Satadru Sengupta",
-        "position": "Associate"
-      },
-      {
-        "name": "SRISHTI GUPTA",
-        "position": "Associate"
-      },
-      {
-        "name": "Alok Raj Tiger",
-        "position": "Associate"
-      }
-    ]
-  },
-  {
-    "id": 4,
     "team": "Cultural",
     "members": [
       {
@@ -168,7 +93,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 4,
     "team": "Events",
     "members": [
       {
@@ -238,77 +163,124 @@
     ]
   },
   {
-    "id": 6,
-    "team": "Finance",
+    "id": 5,
+    "team": "Resource Information",
     "members": [
       {
-        "name": "Sayani Biswas",
+        "name": "Saketh Manchu",
         "position": "Head"
       },
       {
-        "name": "Swyam tiwari",
+        "name": "Sanatan Santosh Samantara",
         "position": "Head"
       },
       {
-        "name": "Vedant Dhanraj Bagade",
+        "name": "Ambhrin Roy",
         "position": "Head"
       },
       {
-        "name": "Jayesh Saini",
+        "name": "PINAK PARATE",
         "position": "Associate Head"
       },
       {
-        "name": "Bontha Likhith",
+        "name": "Kaladhar Gopal",
         "position": "Associate Head"
       },
       {
-        "name": "Vipin Kr. Chaudhary",
+        "name": "Aman Kumar Mehta",
         "position": "Associate Head"
       }
     ]
   },
   {
-    "id": 7,
-    "team": "Photography",
+    "id": 6,
+    "team": "Travel and Logistics",
     "members": [
       {
-        "name": "Karan Mahato",
+        "name": "Akanksha Ajey",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Bobburu Pavan Karthik",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Phoji meena",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Piyush raj",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Arohan Chakraborty",
+        "position": "Associate"
+      },
+      {
+        "name": "Satyam kumar",
+        "position": "Associate"
+      },
+      {
+        "name": "Kunal Bhasker",
+        "position": "Associate"
+      },
+      {
+        "name": "Sonket Shaw",
+        "position": "Associate"
+      }
+    ]
+  },
+  
+  {
+    "id": 7,
+    "team": "Sponsorship",
+    "members": [
+      {
+        "name": "Animesh Vijay Bawane",
         "position": "Head"
       },
       {
-        "name": "Sandip Kumar Das",
+        "name": "SUMAIYA KULSUM",
+        "position": "Head"
+      },
+      {
+        "name": "Aykchat Kalita",
         "position": "Associate Head"
       },
       {
-        "name": "Arka Mondal",
+        "name": "Prateek Yadav",
         "position": "Associate Head"
       },
       {
-        "name": "Anamika Singh",
+        "name": "Nirupama Thakur",
         "position": "Associate Head"
       },
       {
-        "name": "Anshika Gupta",
+        "name": "Hardik Bansal",
         "position": "Associate Head"
       },
       {
-        "name": "Wankhede Aman Daulat",
+        "name": "Mridul Goyal",
         "position": "Associate Head"
       },
       {
-        "name": "Binayak Murmu",
+        "name": "Rajarshi Ray",
         "position": "Associate"
       },
       {
-        "name": "Tanushree Gupta",
+        "name": "Tarishi Sharma",
         "position": "Associate"
       },
       {
-        "name": "Aritra Biswas",
+        "name": "Roshni Patel",
         "position": "Associate"
       },
       {
-        "name": "Debojyoti Kundu",
+        "name": "Islavath Raj Kumar",
+        "position": "Associate"
+      },
+      {
+        "name": "KINGSHUK SADHUKHAN",
         "position": "Associate"
       }
     ]
@@ -423,6 +395,163 @@
   },
   {
     "id": 10,
+    "team": "Stage and Campus Decorations",
+    "members": [
+      {
+        "name": "Aditya Raj Verma",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Dhruv kumar",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Bidisha Garai",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Saptami Kar",
+        "position": "Associate Head"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "team": "Business and Alumni Meet",
+    "members": [
+      {
+        "name": "Yaswanth Pedapudi",
+        "position": "Head"
+      },
+      {
+        "name": "Aditya Singh",
+        "position": "Head"
+      },
+      {
+        "name": "Deepak Garg",
+        "position": "Head"
+      },
+      {
+        "name": "Keshav bhagat",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Sneha Mosha",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Sagnik Ganguly",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Jigyasha Kumari",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Prabhat Tiwari",
+        "position": "Associate"
+      },
+      {
+        "name": "Akarsh Srivastava",
+        "position": "Associate"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "team": "Competition and Seminars",
+    "members": [
+      {
+        "name": "Abhas Maji",
+        "position": "Head"
+      },
+      {
+        "name": "Ritik Yadav",
+        "position": "Head"
+      },
+      {
+        "name": "Chennupalli Sathwik",
+        "position": "Head"
+      },
+      {
+        "name": "Suchetana Bhukta",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Jit Malakar",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Sumit Kumar",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Satadru Sengupta",
+        "position": "Associate"
+      },
+      {
+        "name": "SRISHTI GUPTA",
+        "position": "Associate"
+      },
+      {
+        "name": "Alok Raj Tiger",
+        "position": "Associate"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "team": "Web Development",
+    "members": [
+      {
+        "name": "Mohak Singh",
+        "position": "Head"
+      },
+      {
+        "name": "Anchal Agrawal",
+        "position": "Head"
+      },
+      {
+        "name": "Abhijit Karmakar",
+        "position": "Head"
+      },
+      {
+        "name": "Soumyajit Karmakar",
+        "position": "Head"
+      },
+      {
+        "name": "Subhranil Nandy",
+        "position": "Head"
+      },
+      {
+        "name": "Abhishek Kumar",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Vaibhav Singh",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Yasharth Shukla",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Tejash Kapoor",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Mrigaj Shaw",
+        "position": "Associate"
+      },
+      {
+        "name": "Dheeraj Kumar",
+        "position": "Associate"
+      }
+    ]
+  },
+  
+  {
+    "id": 14,
     "team": "Refreshments",
     "members": [
       {
@@ -467,150 +596,6 @@
       },
       {
         "name": "Chukka Dheeraj",
-        "position": "Associate"
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "team": "Resource Information",
-    "members": [
-      {
-        "name": "Saketh Manchu",
-        "position": "Head"
-      },
-      {
-        "name": "Sanatan Santosh Samantara",
-        "position": "Head"
-      },
-      {
-        "name": "Ambhrin Roy",
-        "position": "Head"
-      },
-      {
-        "name": "PINAK PARATE",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Kaladhar Gopal",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Aman Kumar Mehta",
-        "position": "Associate Head"
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "team": "Sponsorship",
-    "members": [
-      {
-        "name": "Animesh Vijay Bawane",
-        "position": "Head"
-      },
-      {
-        "name": "SUMAIYA KULSUM",
-        "position": "Head"
-      },
-      {
-        "name": "Aykchat Kalita",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Prateek Yadav",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Nirupama Thakur",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Hardik Bansal",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Mridul Goyal",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Rajarshi Ray",
-        "position": "Associate"
-      },
-      {
-        "name": "Tarishi Sharma",
-        "position": "Associate"
-      },
-      {
-        "name": "Roshni Patel",
-        "position": "Associate"
-      },
-      {
-        "name": "Islavath Raj Kumar",
-        "position": "Associate"
-      },
-      {
-        "name": "KINGSHUK SADHUKHAN",
-        "position": "Associate"
-      }
-    ]
-  },
-  {
-    "id": 13,
-    "team": "Stage and Campus Decorations",
-    "members": [
-      {
-        "name": "Aditya Raj Verma",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Dhruv kumar",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Bidisha Garai",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Saptami Kar",
-        "position": "Associate Head"
-      }
-    ]
-  },
-  {
-    "id": 14,
-    "team": "Travel and Logistics",
-    "members": [
-      {
-        "name": "Akanksha Ajey",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Bobburu Pavan Karthik",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Phoji meena",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Piyush raj",
-        "position": "Associate Head"
-      },
-      {
-        "name": "Arohan Chakraborty",
-        "position": "Associate"
-      },
-      {
-        "name": "Satyam kumar",
-        "position": "Associate"
-      },
-      {
-        "name": "Kunal Bhasker",
-        "position": "Associate"
-      },
-      {
-        "name": "Sonket Shaw",
         "position": "Associate"
       }
     ]
@@ -667,50 +652,46 @@
   },
   {
     "id": 16,
-    "team": "Web Development",
+    "team": "Photography",
     "members": [
       {
-        "name": "Mohak Singh",
+        "name": "Karan Mahato",
         "position": "Head"
       },
       {
-        "name": "Anchal Agrawal",
-        "position": "Head"
-      },
-      {
-        "name": "Abhijit Karmakar",
-        "position": "Head"
-      },
-      {
-        "name": "Soumyajit Karmakar",
-        "position": "Head"
-      },
-      {
-        "name": "Subhranil Nandy",
-        "position": "Head"
-      },
-      {
-        "name": "Abhishek Kumar",
+        "name": "Sandip Kumar Das",
         "position": "Associate Head"
       },
       {
-        "name": "Vaibhav Singh",
+        "name": "Arka Mondal",
         "position": "Associate Head"
       },
       {
-        "name": "Yasharth Shukla",
+        "name": "Anamika Singh",
         "position": "Associate Head"
       },
       {
-        "name": "Tejash Kapoor",
+        "name": "Anshika Gupta",
         "position": "Associate Head"
       },
       {
-        "name": "Mrigaj Shaw",
+        "name": "Wankhede Aman Daulat",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Binayak Murmu",
         "position": "Associate"
       },
       {
-        "name": "Dheeraj Kumar",
+        "name": "Tanushree Gupta",
+        "position": "Associate"
+      },
+      {
+        "name": "Aritra Biswas",
+        "position": "Associate"
+      },
+      {
+        "name": "Debojyoti Kundu",
         "position": "Associate"
       }
     ]
@@ -730,21 +711,62 @@
     ]
   },
   {
-    "id": 18,
-    "team": "Secretary General",
+    "id" : 18,
+    "team": "Fixed Signatory",
     "members": [
       {
-        "name": "Aniket .c. Nimje",
+        "name": "Nikhil Kumar",
+        "position": "Associate Head"
+      }
+    ]
+
+  },
+  {
+    "id": 19,
+    "team": "BECA Magazine",
+    "members": [
+      {
+        "name": "Shubham Kumar",
         "position": "Head"
       },
       {
-        "name": "Niloy Mondal",
+        "name": "Anand Tiwari",
         "position": "Head"
       },
       {
-        "name": "Dipu Shaw",
+        "name": "Erikilla Ashish",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Sarthak Singh",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Amit Kiran Das",
+        "position": "Associate Head"
+      },
+      {
+        "name": "Tamanna Jana",
+        "position": "Associate"
+      },
+      {
+        "name": "Aratrika Das",
         "position": "Head"
+      },
+      {
+        "name": "Barla Jhonny Anirudh",
+        "position": "Associate"
       }
     ]
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 ]
