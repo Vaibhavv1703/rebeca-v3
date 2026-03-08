@@ -109,7 +109,7 @@ export const AuthProvider = ({ children }) => {
             // console.log("All events registered by user: ", ev.data.data.regs);
             setUserRegs(ev.data.data.regs.map((e) => e.event));
         } catch (err) {
-            showNotification(`Err: ${err.response?.data?.message || 'error fetching userRegs'}`, "error");
+            showNotification(`Err: ${err.response?.data?.message || 'error fetching userRegs'}`, "info");
         }
     };
     useEffect(() => {
@@ -123,17 +123,18 @@ export const AuthProvider = ({ children }) => {
             try {
                 // This request automatically sends the 'jwt' cookie if it exists
                 const res = await checkAuthStatus();
-                if (res.data.status === "success") {
+                if (res.data.status === "success" && res.data.data.user) {
                     // console.log("login success");
                     setUser(res.data.data.user);
                     showNotification(`Welcome, ${res.data.data.user.name}`, "success");
                 } else {
-                    showNotification(`Error occured while logging in the user.`, "error");
+                    setUser(null)
+                    showNotification(`Log in to take part in events!!`, "info");
                 }
             } catch (err) {
                 // console.log(err)
                 setUser(null);
-                showNotification(`${err.response.data.message}`, "warning");
+                showNotification(`${err.response.data.message}`, "info");
             } finally {
                 setUserLoad(false);
             }
