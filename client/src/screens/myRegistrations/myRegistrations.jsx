@@ -9,7 +9,7 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import PersonIcon from "@mui/icons-material/Person";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useAuth } from "../../AuthContext"; 
-import "./MyRegistrations.css";
+import "./myRegistrations.css";
 
 const formatEventName = (slug) => {
     if (!slug) return "Unknown Event";

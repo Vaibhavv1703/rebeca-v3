@@ -24,10 +24,6 @@ const userSchema = new mongoose.Schema(
         dept: {
             type: String,
             trim: true,
-            validate: {
-                validator: (x) => x.length > 5,
-                message: "ERR: dept: Department Name too short."
-            }
         },
         college: {
             type: String

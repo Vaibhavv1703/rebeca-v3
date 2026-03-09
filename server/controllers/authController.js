@@ -5,7 +5,7 @@ const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const { createUser } = require("./userController");
-const sendEmail = require("../utils/email");
+// const sendEmail = require("../utils/email");
 
 // --- Keep your existing signToken and createSendToken functions here ---
 const signToken = (id) => {
@@ -65,17 +65,17 @@ exports.googleAuth = catchAsync(async (req, res, next) => {
             googleId: sub,
         });
         statusCode = 201; // Created
-        setImmediate(async () => {
-            try {
-                await sendEmail('welcome', email, {
-                    name: name,
-                });
-                console.log(`Email sent successfully to ${req.user.email}`);
-            } catch (err) {
-                // Log it to a service like Sentry or a log file so you know it failed
-                console.error("BACKGROUND EMAIL ERROR:", err.message);
-            }
-        });
+        // setImmediate(async () => {
+        //     try {
+        //         await sendEmail('welcome', email, {
+        //             name: name,
+        //         });
+        //         console.log(`Email sent successfully to ${req.user.email}`);
+        //     } catch (err) {
+        //         // Log it to a service like Sentry or a log file so you know it failed
+        //         console.error("BACKGROUND EMAIL ERROR:", err.message);
+        //     }
+        // });
 
     }
 
