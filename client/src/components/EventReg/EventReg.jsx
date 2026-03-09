@@ -340,9 +340,31 @@ export default function EventRegister() {
                         )}
                         {curEvent?.type === "team" && (
                             <>
-                                <Typography variant="subtitle1" fontWeight="bold">
-                                    Team Members
-                                </Typography>
+                                {/* Team size info */}
+                                <Alert severity="info" sx={{ mb: 2 }}>
+                                    Team size: <b>{curEvent.minTeamSize}–{curEvent.maxTeamSize} members</b> including you.
+                                    Add <b>{curEvent.minTeamSize - 1}–{curEvent.maxTeamSize - 1} other members</b> below.
+                                </Alert>
+
+                                {/* Members heading with live counter */}
+                                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1.5 }}>
+                                    <Typography variant="subtitle1" fontWeight="bold">
+                                        Team Members
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        color={
+                                            formData.teamMem.length < curEvent.minTeamSize - 1
+                                                ? "warning.main"
+                                                : formData.teamMem.length === curEvent.maxTeamSize - 1
+                                                ? "success.main"
+                                                : "text.secondary"
+                                        }
+                                    >
+                                        {formData.teamMem.length} / {curEvent.maxTeamSize - 1} members added
+                                    </Typography>
+                                </Box>
+
                                 {formData.teamMem.map((member, index) => (
                                     <Box key={index} sx={{ display: "flex", gap: 1, mb: 2, alignItems: "flex-start" }}>
                                         <TextField
@@ -359,16 +381,31 @@ export default function EventRegister() {
                                             onChange={(e) => handleMemberChange(index, "phone", e.target.value)}
                                             error={!!errors[`phone_${index}`]}
                                         />
-                                        {formData.teamMem.length > 1 && (
+                                        {formData.teamMem.length > 0 && (
                                             <IconButton color="error" onClick={() => removeMember(index)}>
                                                 <DeleteOutline />
                                             </IconButton>
                                         )}
                                     </Box>
                                 ))}
-                                <Button startIcon={<AddCircleOutline />} onClick={addMember} sx={{ mb: 3 }}>
-                                    Add Member
+
+                                {/* Add Member — disabled at max */}
+                                <Button
+                                    startIcon={<AddCircleOutline />}
+                                    onClick={addMember}
+                                    disabled={formData.teamMem.length >= curEvent.maxTeamSize - 1}
+                                    sx={{ mb: 3 }}
+                                >
+                                    {formData.teamMem.length >= curEvent.maxTeamSize - 1
+                                        ? "Max members reached"
+                                        : "Add Member"}
                                 </Button>
+
+                                {errors.teamMem && (
+                                    <Typography color="error" variant="caption" sx={{ display: "block", mb: 2 }}>
+                                        {errors.teamMem}
+                                    </Typography>
+                                )}
                             </>
                         )}
 
