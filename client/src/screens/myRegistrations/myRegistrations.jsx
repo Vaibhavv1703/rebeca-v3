@@ -24,10 +24,7 @@ const formatDate = (dateString) =>
 const RegistrationCard = ({ reg, allEvents }) => {
     const isTeam = reg.teamMem?.length > 0;
 
-    // 1. Find the specific event in the global list using the slug
     const eventDetails = allEvents.find((e) => e.slug === reg.event);
-
-    // 2. Check if the regfee is greater than 0
     const requiresPayment = eventDetails && eventDetails.regfee > 0;
 
     return (
@@ -75,7 +72,6 @@ const RegistrationCard = ({ reg, allEvents }) => {
                 <Divider sx={{ my: 1.5 }} />
                 <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
 
-                    {/* ONLY render the Payment box if it requires payment AND a link exists */}
                     {requiresPayment && reg.paymentSS && reg.paymentSS.trim() !== "" && (
                         <Box>
                             <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 0.5 }}>
@@ -93,7 +89,6 @@ const RegistrationCard = ({ reg, allEvents }) => {
                         </Box>
                     )}
 
-                    {/* Asset — only if present */}
                     {reg.assetUpload && reg.assetUpload.trim() !== "" && (
                         <Box>
                             <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 0.5 }}>
@@ -121,19 +116,29 @@ const MyRegistrations = () => {
 
     return (
         <Container maxWidth="md" sx={{ pt: 14, pb: 8 }}>
-            {/* 1. Heading isolated and centered */}
+            {/* Heading */}
             <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
-                <Typography 
-                    variant="h3" 
-                    component="h1" 
-                    fontWeight={700} 
-                    sx={{ textTransform: "uppercase", letterSpacing: 1 }}
+                <Typography
+                    variant="h3"
+                    component="h1"
+                    fontWeight={700}
+                    sx={{
+                        textTransform: "uppercase",
+                        letterSpacing: 1,
+                        wordBreak: "break-word",
+                        textAlign: "center",
+                        fontSize: {
+                            xs: "1.5rem",
+                            sm: "2rem",
+                            md: "2.5rem",
+                        },
+                    }}
                 >
-                    MY REGISTRATIONS
+                    My Registrations
                 </Typography>
             </Box>
 
-            {/* 2. "Toolbar" row right above the cards */}
+            {/* Toolbar */}
             <Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", mb: 2 }}>
                 {!userLoad && userRegs.length > 0 && (
                     <Typography variant="body2" color="text.secondary" sx={{ flexGrow: 1 }}>
@@ -147,7 +152,7 @@ const MyRegistrations = () => {
                 </Tooltip>
             </Box>
 
-            {/* 3. The conditionally rendered content */}
+            {/* Content */}
             {userLoad ? (
                 <Box sx={{ display: "flex", justifyContent: "center", mt: 12 }}>
                     <CircularProgress size={60} />
