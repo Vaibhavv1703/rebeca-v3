@@ -48,14 +48,14 @@ const Schedule = () => {
     return (
         <div className="schedule-page">
             {/* Hero Header */}
+            <div className="schedule-pg-bg">
+                <img src="/assets/imgs/Schedule/eventsMainHeader.webp" alt="Events banner" />
+            </div>
             <header className="schedule-header">
-                <div className="schedule-header__bg">
-                    <img src="/assets/imgs/Schedule/eventsMainHeader.webp" alt="Events banner" />
-                </div>
 
                 <div className="schedule-header__content">
                     <div className="schedule-header__title-wrapper">
-                        <Heading title={"EVENTS"} />
+                        <h1>EVENTS</h1>
                     </div>
                     <p className="schedule-header__subtitle">{SUBTITLE}</p>
                 </div>

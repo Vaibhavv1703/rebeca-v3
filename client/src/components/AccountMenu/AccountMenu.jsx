@@ -156,11 +156,12 @@ export default function AccountMenu() {
                 <Button
                     variant="contained"
                     endIcon={<LoginIcon />}
-                    sx={{ textDecoration: "none", textTransform: "none", fontFamily: 'var(--display-font)' }}
+                    sx={{ textDecoration: "none", textTransform: "none", fontFamily: 'var(--display-font)', width: 'max-content' }}
                     onClick={handleClick}
                     aria-controls={open ? "account-menu" : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? "true" : undefined}
+                    
                 >
                     Log in
                 </Button>

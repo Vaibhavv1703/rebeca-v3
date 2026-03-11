@@ -57,6 +57,7 @@ function ProfessorsList() {
 
 const Team = () => {
     const { allTeams } = useAuth();
+    const phone = window.innerWidth <= 450
 
     return (
         allTeams && (
@@ -74,7 +75,7 @@ const Team = () => {
                     margin: "2rem 0",
                     borderRadius: "5px"
                 }}>
-                    <Typography textAlign={"center"} sx={{fontSize: "1.2rem", maxWidth: '70ch', fontFamily: 'var(--body-font)'}} >
+                    <Typography textAlign={"center"} sx={{fontSize: "1.2rem", maxWidth: '70ch', fontFamily: 'var(--body-font)', p: 2}} >
                     Meet the diverse teams behind Rebeca — a collective of passionate students across various domains, working alongside our respected professors. Each team plays a vital role in shaping the fest, bringing together creativity, coordination, and dedication to deliver a seamless and memorable experience for everyone who takes part in the celebration.
                     </Typography>
                     {/* <Button
@@ -114,8 +115,10 @@ const Team = () => {
                                 <AccordionDetails>
                                     <Container
                                         sx={{
-                                            p: 5,
+                                            p: phone ? 1:5,
                                             display: "flex",
+                                            justifyContent: 'center',
+                                            alignItems: 'start',
                                             flexWrap: "wrap",
                                             gap: 2,
                                             bgcolor: "#171717",
